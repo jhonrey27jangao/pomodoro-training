@@ -43,7 +43,6 @@ const PomodoroStateStored = JSON.parse(
 export const pomodoroReducer = (state: any = PomodoroStateStored, action: any) => {
   switch (action.type) {
     case actions.ADD_TODO:
-      console.log(state);
       state = {
         ...state,
         prevId: state.prevId + 1,
