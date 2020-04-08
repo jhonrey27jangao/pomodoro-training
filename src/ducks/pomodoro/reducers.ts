@@ -102,6 +102,13 @@ export const pomodoroReducer = (state: any = PomodoroStateStored, action: any) =
     }
     localStorage.setItem("PomodoroState", JSON.stringify(state));
       return state;
+    case actions.DRAG_TODO: 
+      state = {
+        ...state, 
+          Lists: [...state.Lists]
+      }
+      console.log(action.type, state, 'OPS')
+      return state;
     default:
       return state;
   }

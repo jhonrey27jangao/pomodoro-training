@@ -2,6 +2,7 @@ export const ADD_TODO = "ADD_TODO";
 export const UPDATE_TIMER = "UPDATE_TIMER";
 export const UPDATE_TODO = 'UPDATE_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
+export const DRAG_TODO = 'DRAG_TODO';
 
 export const addTodo = ({
   title,
@@ -58,5 +59,14 @@ export const deleteTodo = ({
   return {
     type: DELETE_TODO, 
     todoId: todoId,
+  }
+}
+
+export const dragTodo = ({
+  id
+}: any) => {
+  return {
+    type: DRAG_TODO,
+    id: id
   }
 }

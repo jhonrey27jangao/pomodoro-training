@@ -13,7 +13,7 @@ import {
   PomodoroListContainer,
   PomodoroListChild
 } from "./styles";
-import { ADD_TODO, UPDATE_TIMER,UPDATE_TODO, DELETE_TODO } from "../../ducks/pomodoro/actions";
+import { ADD_TODO, UPDATE_TIMER,UPDATE_TODO, DELETE_TODO, DRAG_TODO } from "../../ducks/pomodoro/actions";
 
 const IndexPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -114,7 +114,7 @@ const IndexPage: React.FC = () => {
             done: item.done,
             favorites: item.favorites
           })
-        // localStorage.setItem("PomodoroSuggestion", JSON.stringify(PomodoroSuggestion));
+        localStorage.setItem("PomodoroSuggestion", JSON.stringify(PomodoroSuggestion));
       }
     })
   }
@@ -142,7 +142,7 @@ const IndexPage: React.FC = () => {
                   left: '5px',
                   width: '15px',
                   height: '15px',
-                  fontSize: '10px',
+                  fontSize: '8px',
                   color: '#fff',
                   background: '#000',
                   padding: '2px',
@@ -277,7 +277,15 @@ const IndexPage: React.FC = () => {
     })
   }
 
+  const dragTodo = (data: any) => {
+    dispatch({
+      type: DRAG_TODO,
+      id: data
+    })
+  }
+
   useEffect(() => {
+
     let interval: any = null;
 
     checkFavorites()
@@ -333,7 +341,7 @@ const IndexPage: React.FC = () => {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [toggleTimer, timer, autoPomodoro.status, Lists, PomodoroSuggestion, checkFavorites, toggle]);
+  }, [toggleTimer, timer, autoPomodoro.status, Lists, PomodoroSuggestion, checkFavorites, toggle, suggestionStatus]);
   
   const renderTimerModal = () => {
     return(
@@ -465,7 +473,6 @@ const IndexPage: React.FC = () => {
                 setSuggestionStatus(true)
               }}
             />
-            {suggestionStatus && displayFavorites()}
           </PomodoroListContainer>
           <Button width={590} theme="success" onClick={() => getTodo()}>
             Add Todo
@@ -533,23 +540,31 @@ const IndexPage: React.FC = () => {
               <Label type="h2" weight="light" center>
                 Timer: <strong>{time_convert(timer)}</strong>
               </Label>
-              {toggleTimer ? (
-                <Button onClick={toggle} theme="warning" width={150}>
-                  Pause
-                </Button>
-              ) : (
-                <Button onClick={toggle} theme="success" width={150}>
-                  Play
-                </Button>
-              )}
-              <Button onClick={() => setAutoTimer()} theme="warning" width={150}>
-                  {autoPomodoro.status ? "Back to Manual" : "Auto"}
-                </Button>
-              <Button onClick={resetTimer} theme="success" width={150}>
-                Reset
-              </Button>
+                <div>
+                  {toggleTimer ? (
+                  <Button onClick={toggle} theme="warning" width={150}>
+                    Pause
+                  </Button>
+                  ) : (
+                    <Button onClick={toggle} theme="success" width={150}>
+                      Play
+                    </Button>
+                  )}
+                  <Button onClick={() => setAutoTimer()} theme="warning" width={150}>
+                      {autoPomodoro.status ? "Back to Manual" : "Auto"}
+                    </Button>
+                  <Button onClick={resetTimer} theme="success" width={150}>
+                    Reset
+                  </Button>
+                </div>
+                <div style={{
+                  marginTop: '20px'
+                }}>
+                  <Label type="h3" center>Favorites</Label>
+                  {displayFavorites()}
+                </div>
             </PomodoroListChild>
-            <PomodoroListChild percentWidth={40}>              
+            <PomodoroListChild percentWidth={40} height={800}>              
               <Label type="h2" center>
                 Todo List:
               </Label>
@@ -557,9 +572,13 @@ const IndexPage: React.FC = () => {
               {Lists.map((todo: any) => (
                   <li
                     style={{
-                      background: "#f8f8f8"
+                      background: "#f8f8f8",
+                      marginBottom: '20px'
                     }}
                     key={todo.id}
+                  draggable
+                  onDrag={() => dragTodo(todo.id)}
+                  // onDrop={() => dropTodo(todo.id)}
                   >
                     <div style={{
                 position: 'absolute',

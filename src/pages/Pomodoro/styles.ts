@@ -9,6 +9,13 @@ export const StyledPomodoroDiv = styled.div<types.PomodoroStyledProps>`
   background: #f8f8f8;
   box-shadow: 8px 0px 4px #3333;
   padding: 15px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Opera and Firefox */
 `;
 
 export const PomodoroListContainer = styled.div`
@@ -20,6 +27,7 @@ export const PomodoroListContainer = styled.div`
 
 export const PomodoroListChild = styled.div<types.PomodoroStyledProps>`
   width: ${props => props.percentWidth | 30}%;
+  height: ${props => props.height}px;
   float: left;
   margin: 5px 1%;
   padding: 10px;
