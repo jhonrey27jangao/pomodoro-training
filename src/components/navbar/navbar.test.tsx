@@ -1,11 +1,11 @@
 import React from 'react'
 import {render} from '@testing-library/react';
-import Pomodoro from '../index'
+import {Navbar} from './navbar'
 
-describe('Test for Modal Component', () => {
-    it('should render Modal', () => {
+describe('Test for Navbar Component', () => {
+    it('should render Navbar', () => {
         const {container} = render(
-            <Pomodoro/>
+            <Navbar/>
         )
         expect(container).toMatchSnapshot();
     })

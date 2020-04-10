@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for Section Component should render Section 1`] = `
+<div>
+  <section
+    class="sc-AxjAm LyrjF"
+  >
+    <div
+      class="sc-AxirZ cRKUMI"
+    >
+      <div
+        class="sc-AxiKw eopyYK"
+      />
+    </div>
+  </section>
+</div>
+`;

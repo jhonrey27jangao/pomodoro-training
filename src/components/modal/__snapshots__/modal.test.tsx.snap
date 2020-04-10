@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for Modal Component should render Modal 1`] = `
+<div>
+  <div
+    class="sc-AxjAm wGrLI"
+  >
+    <div
+      class="sc-AxirZ gSIKmz"
+    >
+      <h2
+        style="text-align: center; font-weight: bold; margin: 2px;"
+      />
+      <div
+        class="sc-AxiKw dvJsKl"
+      >
+        X
+      </div>
+    </div>
+  </div>
+</div>
+`;

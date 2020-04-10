@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for Label Component should render Label 1`] = `
+<div>
+  <p
+    class="sc-AxhUy gaWmhW"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of h1 1`] = `
+<div>
+  <h1
+    class="sc-AxjAm kLSFdP"
+    type="h1"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of h1 2`] = `
+<div>
+  <h1
+    class="sc-AxjAm kLSFdP"
+    type="h1"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of h1 3`] = `
+<div>
+  <h1
+    class="sc-AxjAm kLSFdP"
+    type="h1"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of h2 1`] = `
+<div>
+  <h2
+    class="sc-AxirZ ebnjYA"
+    type="h2"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of h3 1`] = `
+<div>
+  <h3
+    class="sc-AxiKw dMAvIU"
+    type="h3"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of h4 1`] = `
+<div>
+  <h4
+    class="sc-AxhCb AkssY"
+    type="h4"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of p 1`] = `
+<div>
+  <p
+    class="sc-AxhUy gaWmhW"
+    type="p"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of p 2`] = `
+<div>
+  <p
+    class="sc-AxhUy gaWmhW"
+    type="p"
+  />
+</div>
+`;

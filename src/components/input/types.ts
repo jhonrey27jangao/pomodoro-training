@@ -6,4 +6,5 @@ export type InputProps = {
   onChange?: (e: any) => void | undefined;
   value?: number | any;
   onFocus?: () => void;
+  id?: string
 };

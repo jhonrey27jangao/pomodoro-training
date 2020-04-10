@@ -3,7 +3,7 @@ import { StyledInput } from "./styles";
 import { InputProps } from "./types";
 
 const InputComponent = React.memo(
-  ({ onChange, width, type, placeholder, value }: InputProps) => {
+  ({ onChange, width, type, placeholder, value,id }: InputProps) => {
     return (
       <StyledInput
         type={type}
@@ -11,6 +11,7 @@ const InputComponent = React.memo(
         width={width}
         placeholder={placeholder}
         value={value}
+        id={id}
       />
     );
   }
@@ -21,7 +22,8 @@ export const Input: React.FC<InputProps> = ({
   width,
   type,
   placeholder,
-  value
+  value,
+  id
 }) => {
   return (
     <InputComponent
@@ -30,6 +32,7 @@ export const Input: React.FC<InputProps> = ({
       type={type}
       placeholder={placeholder}
       value={value}
+      id={id}
     />
   );
 };

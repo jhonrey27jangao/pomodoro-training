@@ -1,11 +1,11 @@
 import React from 'react'
 import {render} from '@testing-library/react';
-import Pomodoro from '../index'
+import {Section} from './section'
 
-describe('Test for Modal Component', () => {
-    it('should render Modal', () => {
+describe('Test for Section Component', () => {
+    it('should render Section', () => {
         const {container} = render(
-            <Pomodoro/>
+            <Section/>
         )
         expect(container).toMatchSnapshot();
     })
