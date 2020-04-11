@@ -4,7 +4,7 @@ import {
   StyledHeading2,
   StyledHeading3,
   StyledHeading4,
-  StyledLabel
+  StyledLabel,
 } from "./styles";
 import { LabelProps } from "./types";
 
@@ -12,7 +12,7 @@ export const Label: React.FC<LabelProps> = ({
   type,
   theme,
   weight,
-  center,
+  align,
   children,
   strike,
   pointer,
@@ -20,23 +20,55 @@ export const Label: React.FC<LabelProps> = ({
 }) => (
   <>
     {type === "h1" ? (
-      <StyledHeading1 type={type} theme={theme} weight={weight} center={center} strike={strike} >
+      <StyledHeading1
+        type={type}
+        theme={theme}
+        weight={weight}
+        align={align}
+        strike={strike}
+      >
         {children}
       </StyledHeading1>
     ) : type === "h2" ? (
-      <StyledHeading2 type={type} theme={theme} weight={weight} center={center} strike={strike} >
+      <StyledHeading2
+        type={type}
+        theme={theme}
+        weight={weight}
+        align={align}
+        strike={strike}
+      >
         {children}
       </StyledHeading2>
     ) : type === "h3" ? (
-      <StyledHeading3 type={type} theme={theme} weight={weight} center={center} strike={strike}>
+      <StyledHeading3
+        type={type}
+        theme={theme}
+        weight={weight}
+        align={align}
+        strike={strike}
+      >
         {children}
       </StyledHeading3>
     ) : type === "h4" ? (
-      <StyledHeading4 type={type} theme={theme} weight={weight} center={center} strike={strike} >
+      <StyledHeading4
+        type={type}
+        theme={theme}
+        weight={weight}
+        align={align}
+        strike={strike}
+      >
         {children}
       </StyledHeading4>
     ) : (
-      <StyledLabel type={type} theme={theme} weight={weight} center={center} strike={strike} pointer={pointer} onClick={onClick}>
+      <StyledLabel
+        type={type}
+        theme={theme}
+        weight={weight}
+        align={align}
+        strike={strike}
+        pointer={pointer}
+        onClick={onClick}
+      >
         {children}
       </StyledLabel>
     )}

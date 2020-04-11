@@ -1,53 +1,56 @@
-import React, {useState} from 'react'
-import ReactMapGL, {Marker} from 'react-map-gl'
-import {token, mapStyle} from './map-info'
-import {Cities} from './ph.js'
+import React, { useState } from "react";
+import ReactMapGL, { Marker } from "react-map-gl";
+import { token, mapStyle } from "./map-info";
+import { Countries } from "./countries.js";
 
-const IndexPage:React.FC = () => {
-    const [viewport, setViewport] = useState({
-        latitude: 12.415436073006665,
-        longitude: 123.43105231968562,
-        zoom: 7,
-        width: "100%",
-        height: 400,
-      });
+const IndexPage: React.FC = () => {
+  const [viewport, setViewport] = useState({
+    latitude: 12.415436073006665,
+    longitude: 123.43105231968562,
+    zoom: 7,
+    width: "100%",
+    height: "800px",
+  });
 
-    return(
-        <div>
-            <h2>Covid tracker</h2>
-            <ReactMapGL 
-                {...viewport} 
-                onViewportChange={(viewport:any) => {
-                    setViewport(viewport)
-                }} 
-                mapboxApiAccessToken={token}
-                mapStyle={mapStyle}
+  return (
+    <div>
+      <ReactMapGL
+        {...viewport}
+        onViewportChange={(viewport: any) => {
+          setViewport(viewport);
+        }}
+        mapboxApiAccessToken={token}
+        mapStyle={mapStyle}
+      >
+        {Countries.map((country: any) => (
+          <Marker
+            key={country.name}
+            latitude={country.latlng[0]}
+            longitude={country.latlng[1]}
+          >
+            <button
+              style={{
+                border: "none",
+                background: "none",
+                cursor: "pointer",
+              }}
+              onClick={() => console.log(country.name)}
             >
-            {
-                Cities.map((country: any) => (
-                    <Marker
-                        key={country.country_code}
-                        latitude={country.lat}
-                        longitude={country.lng}
-                    >
-                    <button style={{
-                        border: "none",
-                        background: "none",
-                        cursor: 'pointer'
-                    }}>
-                        <img style={{
-                            width: '20px',
-                            height: '20px'
-                        }}
-                        src="/location.svg" alt="Location"/>
-                    </button>
-                    </Marker>
-                ))
-            }
-            </ReactMapGL>                 
-            </div>
-    )
-}
+              <img
+                style={{
+                  width: "20px",
+                  height: "20px",
+                }}
+                src="/location.svg"
+                alt="Location"
+              />
+            </button>
+          </Marker>
+        ))}
+      </ReactMapGL>
+    </div>
+  );
+};
 
-IndexPage.displayName = 'CovidTrackerPage';
+IndexPage.displayName = "CovidTrackerPage";
 export default IndexPage;

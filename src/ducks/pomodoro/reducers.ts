@@ -5,17 +5,15 @@ type pomodoroStateProps = {
   shortBreak: number;
   longBreak: number;
   prevId: number;
-  Lists: [
-    {
-      id: number;
-      title: string;
-      done: boolean;
-      favorites: boolean;
-      savedPomodoro: number;
-      savedLongBreak: number;
-      savedShortBreak: number;
-    }
-  ];
+  Lists: Array<{
+    id?: number;
+    title?: string;
+    done?: boolean;
+    favorites?: boolean;
+    savedPomodoro?: number;
+    savedLongBreak?: number;
+    savedShortBreak?: number;
+  }>;
 };
 
 const PomodoroState: pomodoroStateProps = {
@@ -26,21 +24,21 @@ const PomodoroState: pomodoroStateProps = {
   Lists: [
     {
       id: 1,
-      title: "Sample",
+      title: "Taena hehe",
       savedPomodoro: 25,
       savedLongBreak: 15,
       savedShortBreak: 10,
       done: false,
-      favorites: false
-    }
-  ]
+      favorites: false,
+    },
+  ],
 };
 
-const PomodoroStateStored = JSON.parse(
-  localStorage.getItem("PomodoroState") || "{}" 
-);
+// const PomodoroStateStored = JSON.parse(
+//   localStorage.getItem("PomodoroState") || "{}"
+// );
 
-export const pomodoroReducer = (state: any = PomodoroStateStored, action: any) => {
+export const pomodoroReducer = (state: any = PomodoroState, action: any) => {
   switch (action.type) {
     case actions.ADD_TODO:
       state = {
@@ -50,14 +48,14 @@ export const pomodoroReducer = (state: any = PomodoroStateStored, action: any) =
           ...state.Lists,
           {
             id: state.prevId + 1,
-            title: action.title,            
+            title: action.title,
             savedPomodoro: action.savedPomodoro,
             savedLongBreak: action.savedLongBreak,
             savedShortBreak: action.savedShortBreak,
             done: false,
             favorites: false,
-          }
-        ]
+          },
+        ],
       };
       localStorage.setItem("PomodoroState", JSON.stringify(state));
       return state;
@@ -66,48 +64,50 @@ export const pomodoroReducer = (state: any = PomodoroStateStored, action: any) =
         ...state,
         pomodoroDuration: action.pomodoroDuration,
         shortBreak: action.shortBreak,
-        longBreak: action.longBreak
+        longBreak: action.longBreak,
       };
       localStorage.setItem("PomodoroState", JSON.stringify(state));
       return state;
-    case actions.UPDATE_TODO: 
-
+    case actions.UPDATE_TODO:
       const editedState = {
         ...state,
-        Lists : state.Lists.filter((item: any) => {
-          return item.id !== action.todoId
-        })
-      }
-        
+        Lists: state.Lists.filter((item: any) => {
+          return item.id !== action.todoId;
+        }),
+      };
+
       state = {
         ...state,
-        Lists: [...editedState.Lists, {          
-          id: action.todoId,
-          title: action.todoTitle,         
-          savedPomodoro: action.savedPomodoro,
-          savedLongBreak: action.savedLongBreak,
-          savedShortBreak: action.savedShortBreak,
-          done: action.todoDone,
-          favorites: action.todoFavorites
-        }]
-      }
+        Lists: [
+          ...editedState.Lists,
+          {
+            id: action.todoId,
+            title: action.todoTitle,
+            savedPomodoro: action.savedPomodoro,
+            savedLongBreak: action.savedLongBreak,
+            savedShortBreak: action.savedShortBreak,
+            done: action.todoDone,
+            favorites: action.todoFavorites,
+          },
+        ],
+      };
       localStorage.setItem("PomodoroState", JSON.stringify(state));
       return state;
     case actions.DELETE_TODO:
       state = {
         ...state,
-        Lists : state.Lists.filter((item: any) => {
-        return item.id !== action.todoId
-      })
-    }
-    localStorage.setItem("PomodoroState", JSON.stringify(state));
+        Lists: state.Lists.filter((item: any) => {
+          return item.id !== action.todoId;
+        }),
+      };
+      localStorage.setItem("PomodoroState", JSON.stringify(state));
       return state;
-    case actions.DRAG_TODO: 
+    case actions.DRAG_TODO:
       state = {
-        ...state, 
-          Lists: [...state.Lists]
-      }
-      console.log(action.type, state, 'OPS')
+        ...state,
+        Lists: [...state.Lists],
+      };
+      console.log(action.type, state, "OPS");
       return state;
     default:
       return state;

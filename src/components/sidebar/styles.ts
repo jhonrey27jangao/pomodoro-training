@@ -24,10 +24,6 @@ export const StyledSideBar = styled.div`
     text-decoration: none;
     border: none;
   }
-
-  & a:hover {
-    color: #fff !important;
-  }
 `;
 
 export const StyledSideBarContent = styled.div`
@@ -66,10 +62,14 @@ export const StyledSideBarContent = styled.div`
     position: relative;
   }
 
-  & .sideBar-nav li a {
+  & .sideBar-nav a li {
     display: block;
     color: rgba(255, 255, 255, 0.6);
     line-height: 44px;
+  }
+
+  & .sideBar-nav a li:hover {
+    color: #fff;
   }
 
   & .sideBar-social {

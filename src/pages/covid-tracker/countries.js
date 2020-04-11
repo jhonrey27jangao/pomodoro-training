@@ -2712,7 +2712,8 @@ export const Countries = [
        "subregion":"Northern America",
        "population":300,
        "latlng":[
- 
+         19.2823,
+         19.2823
        ],
        "demonym":"American",
        "area":null,

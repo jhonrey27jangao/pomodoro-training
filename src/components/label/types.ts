@@ -1,7 +1,7 @@
 export type LabelProps = {
   theme?: "light" | "dark";
   weight?: "bold" | "light";
-  center?: boolean;
+  align?: "center" | "left" | "right";
   type: "h1" | "h2" | "h3" | "h4" | "p";
   children?: any;
   strike?: boolean;

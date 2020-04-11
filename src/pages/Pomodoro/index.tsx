@@ -172,7 +172,7 @@ const IndexPage: React.FC = () => {
                 type="p"
                 pointer={true}
                 onClick={() => setTodoTitle(item.title)}
-                center={true}
+                align="center"
               >
                 {item.title}
               </Label>
@@ -499,7 +499,7 @@ const IndexPage: React.FC = () => {
         {modalView.timerModal && renderTodoModal()}
         <StyledPomodoroDiv position="left">
           <PomodoroListContainer>
-            <Label type="h2" center weight="bold">
+            <Label type="h2" align="center" weight="bold">
               Pomodoro Page
             </Label>
           </PomodoroListContainer>
@@ -521,10 +521,10 @@ const IndexPage: React.FC = () => {
           </Button>
           <PomodoroListContainer>
             <PomodoroListChild percentWidth={30}>
-              <Label type="h3" center weight="light">
+              <Label type="h3" align="center" weight="light">
                 Pomodoro Duration:
               </Label>
-              <Label type="h3" center weight="bold">
+              <Label type="h3" align="center" weight="bold">
                 {pomodoroDuration}
               </Label>
               <Button
@@ -535,10 +535,10 @@ const IndexPage: React.FC = () => {
               </Button>
             </PomodoroListChild>
             <PomodoroListChild percentWidth={30}>
-              <Label type="h3" center weight="light">
+              <Label type="h3" align="center" weight="light">
                 Long break duration:
               </Label>
-              <Label type="h3" center weight="bold">
+              <Label type="h3" align="center" weight="bold">
                 {longBreak}
               </Label>
               <Button width={150} onClick={() => setSpecifiedTimer(longBreak)}>
@@ -546,10 +546,10 @@ const IndexPage: React.FC = () => {
               </Button>
             </PomodoroListChild>
             <PomodoroListChild percentWidth={30}>
-              <Label type="h3" center weight="light">
+              <Label type="h3" align="center" weight="light">
                 Short break duration:
               </Label>
-              <Label type="h3" center weight="bold">
+              <Label type="h3" align="center" weight="bold">
                 {shortBreak}
               </Label>
               <Button width={150} onClick={() => setSpecifiedTimer(shortBreak)}>
@@ -580,7 +580,7 @@ const IndexPage: React.FC = () => {
         <StyledPomodoroDiv position="right">
           <PomodoroListContainer>
             <PomodoroListChild percentWidth={31}>
-              <Label type="h2" weight="light" center>
+              <Label type="h2" weight="light" align="center">
                 Timer: <strong>{time_convert(timer)}</strong>
               </Label>
               <div>
@@ -609,14 +609,14 @@ const IndexPage: React.FC = () => {
                   marginTop: "20px",
                 }}
               >
-                <Label type="h3" center>
+                <Label type="h3" align="center">
                   Favorites
                 </Label>
                 {displayFavorites()}
               </div>
             </PomodoroListChild>
             <PomodoroListChild percentWidth={40} height={800}>
-              <Label type="h2" center>
+              <Label type="h2" align="center">
                 Todo List:
               </Label>
               <ul>
@@ -655,7 +655,12 @@ const IndexPage: React.FC = () => {
                         X
                       </button>
                     </div>
-                    <Label type="h3" weight="bold" strike={todo.done} center>
+                    <Label
+                      type="h3"
+                      weight="bold"
+                      strike={todo.done}
+                      align="center"
+                    >
                       {todo.title} ({todo.savedPomodoro}:00 minutes)
                     </Label>
                     <Button

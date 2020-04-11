@@ -8,10 +8,11 @@ import { Content } from "../components/content/content";
 
 import Pomodoro from "./Pomodoro-new/";
 import CovidTracker from "./covid-tracker/";
+// import OldPomodoro from "./Pomodoro/";
 
 const HomePage: React.FC = () => (
   <div>
-    <h2>Home</h2>
+    <h2>Default Page</h2>
   </div>
 );
 

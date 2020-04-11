@@ -1,19 +1,65 @@
 import React from "react";
 import { ButtonProps } from "./types";
-import { SpanBtn, StyledBtn } from "./styles";
+import { SpanBtn, StyledDefaultButton, StyledNonDefaultBtn } from "./styles";
 
 export const Button: React.FC<ButtonProps> = ({
   width,
   theme,
   onClick,
   children,
-  disabled
+  disabled,
+  rounded,
 }) => {
   return (
     <>
-      <StyledBtn width={width} theme={theme} onClick={onClick} disabled={disabled}>
-        <SpanBtn>{children}</SpanBtn>
-      </StyledBtn>
+      {" "}
+      {theme === "dark" ? (
+        <>
+          <StyledDefaultButton
+            width={width}
+            theme={theme}
+            onClick={onClick}
+            disabled={disabled}
+            rounded={rounded}
+          >
+            <SpanBtn>{children}</SpanBtn>
+          </StyledDefaultButton>
+        </>
+      ) : theme === "default" ? (
+        <>
+          <StyledDefaultButton
+            width={width}
+            theme={theme}
+            onClick={onClick}
+            disabled={disabled}
+            rounded={rounded}
+          >
+            <SpanBtn>{children}</SpanBtn>
+          </StyledDefaultButton>
+        </>
+      ) : theme === "success" ? (
+        <>
+          <StyledNonDefaultBtn
+            width={width}
+            theme={theme}
+            onClick={onClick}
+            disabled={disabled}
+          >
+            {children}
+          </StyledNonDefaultBtn>
+        </>
+      ) : (
+        <>
+          <StyledNonDefaultBtn
+            width={width}
+            theme={theme}
+            onClick={onClick}
+            disabled={disabled}
+          >
+            {children}
+          </StyledNonDefaultBtn>
+        </>
+      )}
     </>
   );
 };

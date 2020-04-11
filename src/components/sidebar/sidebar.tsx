@@ -10,19 +10,13 @@ export const SideBar: React.FC = () => (
     <StyledSideBarContent>
       <ul className="sideBar-nav">
         <Link to="/">
-          <li>
-            <a href="www.sasdad">Home</a>
-          </li>
+          <li>Home</li>
         </Link>
         <Link to="/Pomodoro">
-          <li>
-            <a href="www.sasdad">Pomodoro</a>
-          </li>
+          <li>Pomodoro</li>
         </Link>
         <Link to="/Covid-tracker">
-          <li>
-            <a href="www.sasdad">Covid Tracker</a>
-          </li>
+          <li>Covid Tracker</li>
         </Link>
       </ul>
 
