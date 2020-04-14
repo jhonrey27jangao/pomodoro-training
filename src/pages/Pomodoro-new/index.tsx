@@ -1,21 +1,27 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHotkeys } from "react-hotkeys-hook";
-
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { PomdoroProps } from "./types";
 import { StyledPomodoroDiv, PomodoroListChild, TableContainer } from "./styles";
 import {
   UPDATE_TODO,
+  UPDATE_ORDER,
   UPDATE_TIMER,
   ADD_TODO,
   DELETE_TODO,
 } from "../../ducks/pomodoro/actions";
-
 import { Label } from "../../components/label/label";
 import { Modal } from "../../components/modal/modal";
 import { Input } from "../../components/input/input";
 import { Button } from "../../components/button/button";
 
-const renderPomodoroInput = ({
+const initialValues: any = {
+  todoName: 0,
+};
+
+const RenderPomodoroInput = ({
   pomodoroDuration,
   longBreak,
   shortBreak,
@@ -27,20 +33,31 @@ const renderPomodoroInput = ({
   setModalView,
   modalView,
   autoPomodoro,
+  handleSubmit,
+  todoName,
 }: any) => {
   return (
     <StyledPomodoroDiv>
       <PomodoroListChild percentWidth={30} float="left">
-        <Input
+        <ErrorMessage name="todoName" />
+        <Field
+          id="todoName"
+          name="todoName"
           placeholder="Add todo"
-          value={todoTitle}
-          onChange={(e) => {
+          onChange={(e: any) => {
             setTodoTitle(e.target.value);
           }}
-          id="TodoName"
           center
+          component={Input}
+          value={todoTitle}
         />
-        <Button theme="default" onClick={() => getTodo()}>
+        <Button
+          theme="default"
+          onClick={() => {
+            getTodo();
+            handleSubmit();
+          }}
+        >
           Add Todo
         </Button>
       </PomodoroListChild>
@@ -107,13 +124,41 @@ const renderPomodoroInput = ({
 };
 
 const renderTodoList = ({
+  lists,
   Lists,
   setSpecifiedTimer,
   editTodoList,
   deleteTodo,
+  dragStart,
+  onDrop,
+  dragOver,
+  setModalView,
+  updateOrder
 }: any) => {
   return (
     <TableContainer>
+      <Button
+        width={150}
+        theme="success"
+        onClick={() =>
+          setModalView({
+            aboutModal: false,
+            timerModal: false,
+            todoModal: false,
+            favoritesModal: true,
+          })
+        }
+      >
+        Show Favorites
+      </Button>
+      {lists !== Lists ? (
+        <Button width={150} theme="warning" onClick={() => updateOrder()}>
+          Update order
+        </Button>
+      ) : (
+        ""
+      )}
+
       <table>
         <thead>
           <tr>
@@ -123,12 +168,12 @@ const renderTodoList = ({
             <th>L-break</th>
             <th>S-break</th>
             <th>Status</th>
-            <th>&#9733;</th>
+            <th>Favorites</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {Lists.length === 0 ? (
+          {lists.length === 0 ? (
             <tr>
               <td colSpan={8} style={{ textAlign: "center" }}>
                 No data to show
@@ -136,8 +181,16 @@ const renderTodoList = ({
             </tr>
           ) : (
             <>
-              {Lists.map((item: any, index: any) => (
-                <tr key={index}>
+              {lists.map((item: any, index: any) => (
+                <tr
+                  className={item.done ? "done" : "" }
+                  key={index}
+                  data-position={index}
+                  draggable={true}
+                  onDrag={(e: any) => dragStart(e)}
+                  onDrop={(e: any) => onDrop(e)}
+                  onDragOver={(e) => dragOver(e)}
+                >
                   <td>
                     <Label
                       type="p"
@@ -163,13 +216,14 @@ const renderTodoList = ({
                   <td> {item.savedPomodoro}</td>
                   <td> {item.savedLongBreak}</td>
                   <td> {item.savedShortBreak}</td>
-                  <td>{item.done ? "Yes" : "No"}</td>
+                  <td>{item.done ? "Done" : "To do"}</td>
                   <td key={index}> {item.favorites ? "Yes" : "No"}</td>
                   <td>
                     <Button
                       width={100}
                       theme="success"
                       onClick={() => setSpecifiedTimer(item.savedPomodoro)}
+                      disabled={item.done}
                     >
                       Play
                     </Button>
@@ -224,7 +278,6 @@ const renderTimerModal = ({
         }
         width={245}
       />
-      <Label type="p">Status</Label>
       <Button
         theme="dark"
         width={260}
@@ -350,11 +403,11 @@ const renderAboutModal = ({ modalView, setModalView }: any) => {
           timer to boost your efficiency.
         </Label>
       </PomodoroListChild>
+      <br />
       <PomodoroListChild>
         <Label type="h3" align="left" weight="bold">
           How to use:
         </Label>
-        <br />
         <Label type="p">
           -Decide task to be done set timers to 25 minutes for one "Pomodoro"
           <br />
@@ -370,35 +423,26 @@ const renderAboutModal = ({ modalView, setModalView }: any) => {
         <Label type="h3" align="left" weight="bold">
           Shortcut Keys:
         </Label>
-        <br />
-        <div
-          style={{
-            width: "20%",
-            margin: "0 auto",
-            textAlign: "left",
-          }}
-        >
-          -
-          <Label type="p" align="center" weight="bold">
-            Play
-          </Label>{" "}
-          (shift + p)
-          <br />-
-          <Label type="p" align="center" weight="bold">
-            Pause
-          </Label>{" "}
-          (shift + [)
-          <br />-
-          <Label type="p" align="center" weight="bold">
-            Reset
-          </Label>{" "}
-          (shift + r)
-          <br />-
-          <Label type="p" align="center" weight="bold">
-            Auto
-          </Label>{" "}
-          (shift + a)
-        </div>
+        -
+        <Label type="p" align="center" weight="bold">
+          Play
+        </Label>
+        (shift + p)
+        <br />-
+        <Label type="p" align="center" weight="bold">
+          Pause
+        </Label>
+        (shift + [)
+        <br />-
+        <Label type="p" align="center" weight="bold">
+          Reset
+        </Label>
+        (shift + r)
+        <br />-
+        <Label type="p" align="center" weight="bold">
+          Auto
+        </Label>
+        (shift + a)
       </PomodoroListChild>
       <hr />
       <Label type="h4" align="center">
@@ -407,20 +451,75 @@ const renderAboutModal = ({ modalView, setModalView }: any) => {
     </Modal>
   );
 };
-const IndexPage: React.FC = () => {
+
+const renderFavoritesModal = ({ setModalView,  setTodoTitle }: any) => {
+  const listFavorites = JSON.parse(
+    localStorage.getItem("PomodoroSuggestion") || "{}"
+  );
+
+  const selectFavorite = (item: any) => {
+     setModalView({
+      aboutModal: false,
+      timerModal: false,
+      todoModal: false,
+      favorites: false,
+    })
+    setTodoTitle(item)
+  }
+
+  return (
+    <Modal
+      width={300}
+      onClose={() =>
+        setModalView({
+          aboutModal: false,
+          timerModal: false,
+          todoModal: false,
+          favorites: false,
+        })
+       
+      }
+      modalTitle="Pick Favorites:"
+    >
+      {listFavorites.length === 0 ? (
+        <p
+          style={{
+            marginTop: "10px",
+            textAlign: "center",
+          }}
+        >
+          No favorites
+        </p>
+      ) : (
+        <>
+          {listFavorites.map((item: any) => (
+            <>
+              <Button key={item.id} theme="success" onClick={() => selectFavorite(item.title)}>
+                {item.title}
+              </Button>
+            </>
+          ))}
+        </>
+      )}
+    </Modal>
+  );
+};
+
+const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
   const dispatch = useDispatch();
   let PomodoroSuggestion: any = [];
-  const shortBreak = useSelector((state: any) => state.shortBreak);
-  const longBreak = useSelector((state: any) => state.longBreak);
-  const pomodoroDuration = useSelector((state: any) => state.pomodoroDuration);
-  const Lists = useSelector((state: any) => state.Lists);
 
+  const allState = useSelector((state: any) => state);
+  const shortBreak = useSelector((state: any) => state.pomodoroReducer.shortBreak);
+  const longBreak = useSelector((state: any) => state.pomodoroReducerlongBreak);
+  const pomodoroDuration = useSelector((state: any) => state.pomodoroReducer.pomodoroDuration);
+  const Lists = useSelector((state: any) => state.pomodoroReducer.Lists);
+  const [lists, setLists] = useState(Lists);
   const [pomodoroDurationState, setpomodoroDurationState] = useState<number>(
     pomodoroDuration
   );
   const [shortBreakState, setShortBreakState] = useState<number>(shortBreak);
   const [longBreakState, setlongBreakState] = useState<number>(longBreak);
-
   const [timer, setTimer] = useState(pomodoroDurationState * 60);
   const [toggleTimer, setToggleTimer] = useState(false);
   const [todoTitle, setTodoTitle] = useState("");
@@ -428,15 +527,14 @@ const IndexPage: React.FC = () => {
     todoModal: false,
     timerModal: false,
     aboutModal: false,
+    favoritesModal: false,
   });
-
   const [autoPomodoro, setAutoPomodoro] = useState({
     status: false,
     pomodoroLimit: 3,
     longBreakLimit: 2,
     shortBreakLimit: 3,
   });
-
   const [editTodo, setEditTodo] = useState({
     id: 0,
     title: "",
@@ -446,6 +544,82 @@ const IndexPage: React.FC = () => {
     savedLongBreak: longBreak,
     savedShortBreak: shortBreak,
   });
+
+  const dragState = {
+    draggedFrom: 0,
+    draggedTo: 0,
+    isDragging: false,
+    originalOrder: [
+      {
+        id: 1,
+        title: "",
+        savedPomodoro: 0,
+        savedLongBreak: 0,
+        savedShortBreak: 0,
+        done: false,
+        favorites: false,
+      },
+    ],
+    
+    updatedOrder: [
+      {
+        id: 1,
+        title: "",
+        savedPomodoro: 0,
+        savedLongBreak: 0,
+        savedShortBreak: 0,
+        done: false,
+        favorites: false,
+      },
+    ],
+  };
+
+  const [dragAndDrop, setDragAndDrop] = useState(dragState);
+
+  const dragStart = (e: any) => {
+    const initialPosition = Number(e.currentTarget.dataset.position);
+    setDragAndDrop({
+      ...dragAndDrop,
+      draggedFrom: initialPosition,
+      isDragging: true,
+      originalOrder: lists,
+    });
+  };
+
+  const dragOver = (e: any) => {
+    e.preventDefault();
+    let newList = dragAndDrop.originalOrder;
+    const draggedFrom = dragAndDrop.draggedFrom;
+    const draggedTo = Number(e.currentTarget.dataset.position);
+    const itemDragged = newList[draggedFrom];
+    const remainingItems = newList.filter(
+      (item, index) => index !== draggedFrom
+    );
+    newList = [
+      ...remainingItems.slice(0, draggedTo),
+      itemDragged,
+      ...remainingItems.slice(draggedTo),
+    ];
+
+    if (draggedTo !== dragAndDrop.draggedTo) {
+      setDragAndDrop({
+        ...dragAndDrop,
+        updatedOrder: newList,
+        draggedTo: draggedTo,
+      });
+    }
+  };
+
+  const onDrop = (e: any) => {
+    setLists(dragAndDrop.updatedOrder);
+    setDragAndDrop({
+      ...dragAndDrop,
+      draggedFrom: 0,
+      draggedTo: 0,
+      isDragging: false,
+    });
+    
+  };
 
   const editTodoList = useCallback(
     ({
@@ -461,6 +635,7 @@ const IndexPage: React.FC = () => {
         todoModal: true,
         timerModal: false,
         aboutModal: false,
+        favoritesModal: false,
       });
       setEditTodo({
         id: todoId,
@@ -491,7 +666,12 @@ const IndexPage: React.FC = () => {
       timerModal: modalView.timerModal,
       todoModal: !modalView.todoModal,
       aboutModal: modalView.aboutModal,
+      favoritesModal: modalView.favoritesModal,
     });
+    
+    if(lists !== Lists) {
+      setLists(Lists)
+    }
   };
 
   const updateTimer = () => {
@@ -505,6 +685,7 @@ const IndexPage: React.FC = () => {
       todoModal: false,
       timerModal: false,
       aboutModal: false,
+      favoritesModal: false,
     });
   };
 
@@ -524,14 +705,18 @@ const IndexPage: React.FC = () => {
         savedLongBreak: longBreak,
         savedShortBreak: shortBreak,
       });
+
+      Notification.requestPermission().then(() => {
+        new Notification(`Added todo: ${todoTitle}:`, {
+          body: `Duration: ${pomodoroDuration}`,
+          timestamp: 500,
+        });
+      });
     }
 
-    Notification.requestPermission().then(() => {
-      new Notification(`Added todo: ${todoTitle}:`, {
-        body: `Duration: ${pomodoroDuration}`,
-        timestamp: 500,
-      });
-    });
+    if(lists !== Lists) {
+      setLists(Lists)
+    }
   };
 
   const toggle = useCallback(() => {
@@ -600,9 +785,39 @@ const IndexPage: React.FC = () => {
     });
   };
 
-  useEffect(() => {
-    let interval: any = null;
+  const updateOrder = () => {
+    dispatch({
+      type: UPDATE_ORDER,
+      lists: lists
+    })
+  }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const checkFavorites = () => {
+    /*eslint-disable*/ 
+    Lists.map((item: any) => {
+      if (item.favorites === true) {
+        PomodoroSuggestion.push({
+          id: item.id,
+          title: item.title,
+          savedPomodoro: item.savedPomodoro,
+          savedLongBreak: item.savedLongBreak,
+          savedShortBreak: item.savedShortBreak,
+          done: item.done,
+          favorites: item.favorites,
+        });
+        localStorage.setItem(
+          "PomodoroSuggestion",
+          JSON.stringify(PomodoroSuggestion)
+        );
+      }
+    });
+  };
+  
+  useEffect(() => {
+    console.log(allState);
+    let interval: any = null;
+    checkFavorites();
     if (toggleTimer) {
       interval = setInterval(() => {
         setTimer((timer: number) => timer - 1);
@@ -650,8 +865,10 @@ const IndexPage: React.FC = () => {
     } else if (!toggleTimer && timer !== 0) {
       clearInterval(interval);
     }
+
     return () => clearInterval(interval);
   }, [
+    setTitle,
     toggleTimer,
     timer,
     longBreak,
@@ -661,10 +878,12 @@ const IndexPage: React.FC = () => {
     autoPomodoro.longBreakLimit,
     autoPomodoro.shortBreakLimit,
     autoPomodoro.pomodoroLimit,
-    Lists,
     PomodoroSuggestion,
     toggle,
     setSpecifiedTimer,
+    checkFavorites,
+    Lists,
+
   ]);
 
   useHotkeys("shift+p", () => toggle());
@@ -672,75 +891,102 @@ const IndexPage: React.FC = () => {
   useHotkeys("shift+a", () => setAutoTimer());
   useHotkeys("shift+r", () => resetTimer());
 
+  const validationSchema = Yup.object().shape({
+    todoName: Yup.number().required("Required"),
+  });
+
   return (
-    <>
-      <Label type="h1" align="center" weight="bold">
-        <span style={{ fontFamily: "'Orbitron', sans-serif" }}>
-          Timer: <br />
-          {time_convert(timer)}
-        </span>
-      </Label>
-      <PomodoroListChild percentWidth={30}>
-        <Button
-          theme="dark"
-          width={100}
-          onClick={toggle}
-          disabled={toggleTimer === false ? true : false}
-        >
-          &#10074;&#10074;
-        </Button>
-        <Button
-          theme="dark"
-          width={100}
-          onClick={toggle}
-          disabled={toggleTimer === true ? true : false}
-        >
-          &#9655;
-        </Button>
-        <Button theme="dark" width={100} onClick={resetTimer}>
-          ↻
-        </Button>
-      </PomodoroListChild>
-      {modalView.todoModal &&
-        renderTimerModal({
-          modalView,
-          setModalView,
-          editTodo,
-          setEditTodo,
-          updateTodoList,
-        })}
-      {modalView.timerModal &&
-        renderTodoModal({
-          shortBreakState,
-          longBreakState,
-          pomodoroDurationState,
-          setShortBreakState,
-          setlongBreakState,
-          setpomodoroDurationState,
-          setModalView,
-          updateTimer,
-        })}
-      {modalView.aboutModal && renderAboutModal({ modalView, setModalView })}
-      {renderPomodoroInput({
-        pomodoroDuration,
-        longBreak,
-        shortBreak,
-        getTodo,
-        todoTitle,
-        setTodoTitle,
-        setAutoTimer,
-        setSpecifiedTimer,
-        modalView,
-        setModalView,
-        autoPomodoro,
-      })}
-      {renderTodoList({
-        Lists,
-        editTodoList,
-        deleteTodo,
-        setSpecifiedTimer,
-      })}
-    </>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={getTodo}
+      validateOnChange={true}
+      validateOnBlur={true}
+    >
+      {(formikBag: any) => (
+        <Form>
+          <>
+            <Label type="h2" align="center" weight="bold">
+              <span style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                Timer: <br />
+                {time_convert(timer)}
+              </span>
+            </Label>
+            <PomodoroListChild percentWidth={30}>
+              <Button
+                theme="dark"
+                width={100}
+                onClick={toggle}
+                disabled={toggleTimer === false ? true : false}
+              >
+                &#10074;&#10074;
+              </Button>
+              <Button
+                theme="dark"
+                width={100}
+                onClick={toggle}
+                disabled={toggleTimer === true ? true : false}
+              >
+                &#9655;
+              </Button>
+              <Button theme="dark" width={100} onClick={resetTimer}>
+                ↻
+              </Button>
+            </PomodoroListChild>
+            {modalView.todoModal &&
+              renderTimerModal({
+                modalView,
+                setModalView,
+                editTodo,
+                setEditTodo,
+                updateTodoList,
+              })}
+            {modalView.timerModal &&
+              renderTodoModal({
+                shortBreakState,
+                longBreakState,
+                pomodoroDurationState,
+                setShortBreakState,
+                setlongBreakState,
+                setpomodoroDurationState,
+                setModalView,
+                updateTimer,
+              })}
+            {modalView.aboutModal &&
+              renderAboutModal({ modalView, setModalView })}
+            {modalView.favoritesModal &&
+              renderFavoritesModal({ setModalView, modalView, setTodoTitle })}
+            <RenderPomodoroInput
+              pomodoroDuration={pomodoroDuration}
+              longBreak={longBreak}
+              shortBreak={shortBreak}
+              getTodo={getTodo}
+              todoTitle={todoTitle}
+              setTodoTitle={setTodoTitle}
+              setAutoTimer={setAutoTimer}
+              setSpecifiedTimer={setSpecifiedTimer}
+              modalView={modalView}
+              setModalView={setModalView}
+              autoPomodoro={autoPomodoro}
+              handleSubmit={formikBag.handleSubmit}
+              todoName={initialValues.todoName}
+            />
+            {renderTodoList({
+              lists,
+              Lists,
+              editTodoList,
+              deleteTodo,
+              setSpecifiedTimer,
+              dragStart,
+              onDrop,
+              dragOver,
+              setModalView,
+              updateOrder,
+            })}
+          </>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

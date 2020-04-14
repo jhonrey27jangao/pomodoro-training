@@ -12,10 +12,10 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <>
-      {" "}
       {theme === "dark" ? (
         <>
           <StyledDefaultButton
+            type="submit"
             width={width}
             theme={theme}
             onClick={onClick}
@@ -28,6 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
       ) : theme === "default" ? (
         <>
           <StyledDefaultButton
+            type="submit"
             width={width}
             theme={theme}
             onClick={onClick}
@@ -41,6 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
         <>
           <StyledNonDefaultBtn
             width={width}
+            type="submit"
             theme={theme}
             onClick={onClick}
             disabled={disabled}
@@ -52,6 +54,7 @@ export const Button: React.FC<ButtonProps> = ({
         <>
           <StyledNonDefaultBtn
             width={width}
+            type="submit"
             theme={theme}
             onClick={onClick}
             disabled={disabled}

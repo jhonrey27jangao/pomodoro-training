@@ -17,7 +17,7 @@ export const PomodoroListChild = styled.div<types.PomodoroStyledProps>`
 `;
 
 export const TableContainer = styled.div`
-  margin-top: 60px;
+  padding-top: 60px;
 
   & table {
     width: 100%;
@@ -28,16 +28,25 @@ export const TableContainer = styled.div`
 
   & table th {
     padding: 1rem 2.5rem;
-    color: #000000;
+    color: #fff;
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 700;
     border-bottom: 1px solid #e0e0e0;
-
+    background: #000;
   }
 
   & table td {
     padding: 1rem 2.5rem;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
+  }
+
+  & table tbody tr:hover {
+    background: #f4f4f4;
+  }
+
+  & table tbody tr.done { 
+    text-decoration: line-through;
+    background: #eeee;
   }
 `;

@@ -34,11 +34,14 @@ const PomodoroState: pomodoroStateProps = {
   ],
 };
 
-// const PomodoroStateStored = JSON.parse(
-//   localStorage.getItem("PomodoroState") || "{}"
-// );
+const PomodoroStateStored = JSON.parse(
+  localStorage.getItem("PomodoroState") || "{}"
+);
 
-export const pomodoroReducer = (state: any = PomodoroState, action: any) => {
+export const pomodoroReducer = (
+  state: any = PomodoroStateStored || PomodoroState,
+  action: any
+) => {
   switch (action.type) {
     case actions.ADD_TODO:
       state = {
@@ -102,13 +105,14 @@ export const pomodoroReducer = (state: any = PomodoroState, action: any) => {
       };
       localStorage.setItem("PomodoroState", JSON.stringify(state));
       return state;
-    case actions.DRAG_TODO:
+    case actions.UPDATE_ORDER:
       state = {
         ...state,
-        Lists: [...state.Lists],
+        Lists: action.lists,
       };
-      console.log(action.type, state, "OPS");
+      localStorage.setItem("PomodoroState", JSON.stringify(state));
       return state;
+
     default:
       return state;
   }

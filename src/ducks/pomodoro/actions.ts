@@ -3,6 +3,7 @@ export const UPDATE_TIMER = "UPDATE_TIMER";
 export const UPDATE_TODO = 'UPDATE_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
 export const DRAG_TODO = 'DRAG_TODO';
+export const UPDATE_ORDER = 'UPDATE_ORDER'
 
 export const addTodo = ({
   title,
@@ -68,5 +69,14 @@ export const dragTodo = ({
   return {
     type: DRAG_TODO,
     id: id
+  }
+}
+
+export const updateOrder = ({
+  lists
+}: any) => {
+  return {
+    type: UPDATE_ORDER,
+    lists: lists
   }
 }

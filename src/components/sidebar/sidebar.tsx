@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 export const SideBar: React.FC = () => (
   <StyledSideBar>
     <StyledLogo>
-      <a href="sadad">Typerite.</a>
+      <a href="sadad">Ricardo.</a>
     </StyledLogo>
     <StyledSideBarContent>
       <ul className="sideBar-nav">
         <Link to="/">
           <li>Home</li>
         </Link>
-        <Link to="/Pomodoro">
+        <Link to="/pomodoro">
           <li>Pomodoro</li>
         </Link>
-        <Link to="/Covid-tracker">
+        <Link to="/covid-tracker">
           <li>Covid Tracker</li>
         </Link>
       </ul>

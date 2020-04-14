@@ -7,11 +7,11 @@ export const SpanBtn = styled.span`
 `;
 
 export const StyledNonDefaultBtn = styled.button<ButtonProps>`
-    margin: 5px auto;
+    display: table-cell;
+    margin: 5px 3px;
     width: ${(props) => (props.width ? `${props.width}px` : "100%")};
     border: none;
     border-radius: 30px;
-    display: block;
     text-align: center;
     cursor: pointer;
     text-transform: uppercase;

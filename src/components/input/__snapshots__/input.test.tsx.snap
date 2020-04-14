@@ -3,7 +3,7 @@
 exports[`Test for Input Component should render Input 1`] = `
 <div>
   <input
-    class="sc-AxjAm iHbDRT"
+    class="sc-AxjAm drbfYu"
     value=""
   />
 </div>

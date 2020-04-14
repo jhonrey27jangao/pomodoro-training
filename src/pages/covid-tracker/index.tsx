@@ -1,54 +1,20 @@
-import React, { useState } from "react";
-import ReactMapGL, { Marker } from "react-map-gl";
-import { token, mapStyle } from "./map-info";
-import { Countries } from "./countries.js";
+import React from "react";
+import {useDispatch} from 'react-redux'
+import CovidInfo from "./covid-info";
+import * as actions from '../../ducks/covid-tracker/actions'
 
+
+import {useSelector} from 'react-redux'
 const IndexPage: React.FC = () => {
-  const [viewport, setViewport] = useState({
-    latitude: 12.415436073006665,
-    longitude: 123.43105231968562,
-    zoom: 7,
-    width: "100%",
-    height: "800px",
-  });
-
-  return (
-    <div>
-      <ReactMapGL
-        {...viewport}
-        onViewportChange={(viewport: any) => {
-          setViewport(viewport);
-        }}
-        mapboxApiAccessToken={token}
-        mapStyle={mapStyle}
-      >
-        {Countries.map((country: any) => (
-          <Marker
-            key={country.name}
-            latitude={country.latlng[0]}
-            longitude={country.latlng[1]}
-          >
-            <button
-              style={{
-                border: "none",
-                background: "none",
-                cursor: "pointer",
-              }}
-              onClick={() => console.log(country.name)}
-            >
-              <img
-                style={{
-                  width: "20px",
-                  height: "20px",
-                }}
-                src="/location.svg"
-                alt="Location"
-              />
-            </button>
-          </Marker>
-        ))}
-      </ReactMapGL>
-    </div>
+  const dispatch = useDispatch();
+  const OverAll = useSelector((state: any) => state.OverAll)
+ 
+  return (    
+    <>
+      <button onClick={() => dispatch(actions.getInfoRequest())}>GET</button>
+      <p>Cases: {JSON.stringify(OverAll)}</p>
+      <CovidInfo />
+    </>
   );
 };
 

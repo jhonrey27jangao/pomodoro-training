@@ -4,3 +4,7 @@ export type PomodoroStyledProps = {
   height?: number | any;
   float?: "left" | "right";
 };
+
+export type PomdoroProps = {
+  setTitle: (e: any) => void;
+};

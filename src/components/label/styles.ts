@@ -13,7 +13,7 @@ export const StyledHeading2 = styled.h2<LabelProps>`
   font-size: 30px;
   font-family: inherit;
   vertical-align: baseline;
-  color: ${(props) => (props.theme === "light" ? "#fff" : "#7a7d86")};
+  color: ${(props) => (props.theme === "light" ? "#fff" : "#000")};
   font-weight: ${(props) => (props.weight === "bold" ? "900" : "100")};
   text-align: ${(props) => props.align};
   text-decoration: ${(props) => (props.strike ? "line-through" : "none")};
@@ -23,7 +23,7 @@ export const StyledHeading3 = styled.h3<LabelProps>`
   font-size: 21px;
   font-family: inherit;
   vertical-align: baseline;
-  color: ${(props) => (props.theme === "light" ? "#fff" : "#7a7d86")};
+  color: ${(props) => (props.theme === "light" ? "#fff" : "#000")};
   font-weight: ${(props) => (props.weight === "bold" ? "900" : "100")};
   text-align: ${(props) => props.align};
   text-decoration: ${(props) => (props.strike ? "line-through" : "none")};
@@ -32,7 +32,7 @@ export const StyledHeading3 = styled.h3<LabelProps>`
 export const StyledHeading4 = styled.h4<LabelProps>`
   font-family: inherit;
   vertical-align: baseline;
-  color: ${(props) => (props.theme === "light" ? "#fff" : "#7a7d86")};
+  color: ${(props) => (props.theme === "light" ? "#fff" : "#000")};
   font-weight: ${(props) => (props.weight === "bold" ? "900" : "100")};
   text-align: ${(props) => props.align};
   text-decoration: ${(props) => (props.strike ? "line-through" : "none")};
@@ -42,7 +42,7 @@ export const StyledLabel = styled.p<LabelProps>`
   display: inline;
   font-family: inherit;
   vertical-align: baseline;
-  color: ${(props) => (props.theme === "light" ? "#fff" : "#7a7d86")};
+  color: ${(props) => (props.theme === "light" ? "#fff" : "#000")};
   font-weight: ${(props) => (props.weight === "bold" ? "900" : "100")};
   text-align: ${(props) => props.align};
   text-decoration: ${(props) => (props.strike ? "line-through" : "none")};

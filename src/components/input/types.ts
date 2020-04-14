@@ -9,4 +9,5 @@ export type InputProps = {
   onFocus?: () => void;
   id?: string;
   center?: boolean;
+  name?: string;
 };
