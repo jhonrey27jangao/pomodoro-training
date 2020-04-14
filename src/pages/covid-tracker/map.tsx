@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { token, mapStyle } from "./api/map-info";
-import { Countries } from "./api/countries.js";
+import { Countries } from "./api/worldjson.js";
 
 export const Map: React.FC = () => {
   const [viewport, setViewport] = useState({

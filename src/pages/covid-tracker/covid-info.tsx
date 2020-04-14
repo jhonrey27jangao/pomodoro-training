@@ -9,7 +9,7 @@ import * as types from "./types";
 const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
   return (
     <DashBoardContainer>
-      <ItemContainer>
+      <ItemContainer flexAs="4md">
         <ItemContent>
           <div className="top">
             <ItemIconContainer background="blue">
@@ -28,7 +28,7 @@ const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
           </div>
         </ItemContent>
       </ItemContainer>
-      <ItemContainer>
+      <ItemContainer flexAs="4md">
         <ItemContent>
           <div className="top">
             <ItemIconContainer background="red">
@@ -48,9 +48,17 @@ const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
           </div>
         </ItemContent>
       </ItemContainer>
-      <ItemContainer>
+      <ItemContainer flexAs="4md">
         <ItemContent>
           <div className="top">
+            <ItemIconContainer background="green">
+              <span>
+                <img
+                  src={require("../../assets/images/recovered.png")}
+                  alt="Infected"
+                />
+              </span>
+            </ItemIconContainer>
             <p>Recoveries:</p>
             <h3>{info.recovered}</h3>
           </div>
@@ -59,10 +67,17 @@ const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
           </div>
         </ItemContent>
       </ItemContainer>
-
-      <ItemContainer>
+      <ItemContainer flexAs="4md">
         <ItemContent>
           <div className="top">
+            <ItemIconContainer background="dark">
+              <span>
+                <img
+                  src={require("../../assets/images/github.png")}
+                  alt="Infected"
+                />
+              </span>
+            </ItemIconContainer>
             <p>Api Info:</p>
             <a href="https://github.com/javieraviles/covidAPI">
               Live Coronavirus API
