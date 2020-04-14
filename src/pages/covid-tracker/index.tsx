@@ -1,19 +1,21 @@
-import React from "react";
-import {useDispatch} from 'react-redux'
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import CovidInfo from "./covid-info";
-import * as actions from '../../ducks/covid-tracker/actions'
+import * as types from "./types";
+import * as actions from "../../ducks/covid-tracker/actions";
 
-
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 const IndexPage: React.FC = () => {
   const dispatch = useDispatch();
-  const OverAll = useSelector((state: any) => state.OverAll)
- 
-  return (    
+  const info = useSelector((state: any) => state.covidTrackerReducer.info);
+
+  useEffect(() => {
+    dispatch(actions.getInfoRequest());
+  }, []);
+
+  return (
     <>
-      <button onClick={() => dispatch(actions.getInfoRequest())}>GET</button>
-      <p>Cases: {JSON.stringify(OverAll)}</p>
-      <CovidInfo />
+      <CovidInfo info={info} />
     </>
   );
 };

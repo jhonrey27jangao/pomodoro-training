@@ -2,7 +2,11 @@ import * as actions from './actions'
 
 const covidTrackerState = {
     loading: false,
-    info: []
+    info: {
+        cases: 0,
+        deaths: 0,
+        recovered: 0,
+    }
 }
 
 export const covidTrackerReducer = (state: any = covidTrackerState, action: any ) => {
@@ -18,7 +22,7 @@ export const covidTrackerReducer = (state: any = covidTrackerState, action: any 
         case actions.GET_INFO_SUCCESS:
             state = {
                 ...state,
-                info: [{...action.payload}],
+                info: {...action.payload},
                 loading: false,
             }
             console.log(state)

@@ -8,10 +8,13 @@ export const StyledContent = styled.div<ContentType>`
   font-family: "Heebo", sans-serif;
 
   .title-page {
+    cursor: pointer;
+    color: rgb(85, 85, 85);
     position: fixed;
     top: 40px;
     left: 20%;
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 25px;
+    background: transparent;
+    font-weight: normal;
   }
 `;

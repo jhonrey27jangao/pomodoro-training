@@ -17,7 +17,7 @@ const IndexPage: React.FC = () => {
       <Router>
         <div id="main">
           <SideBar />
-          <Content title="Pomodoro">
+          <Content title="Covid Tracker:">
             <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/pomodoro" component={Pomodoro} />
