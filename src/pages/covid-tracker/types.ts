@@ -8,5 +8,6 @@ export type CountryInfoProps = {
 
 export type ItemProps = {
   background?: "blue" | "green" | "red" | "yellow" | "dark";
-  flexAs?: "4md" | "3md" | "2md";
+  flexAs?: "40md" | "30md" | "25md" | "60md" | "50md" | "70md" | "full";
+  unPadd?: boolean;
 };

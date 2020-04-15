@@ -133,7 +133,7 @@ const renderTodoList = ({
   onDrop,
   dragOver,
   setModalView,
-  updateOrder
+  updateOrder,
 }: any) => {
   return (
     <TableContainer>
@@ -183,7 +183,7 @@ const renderTodoList = ({
             <>
               {lists.map((item: any, index: any) => (
                 <tr
-                  className={item.done ? "done" : "" }
+                  className={item.done ? "done" : ""}
                   key={index}
                   data-position={index}
                   draggable={true}
@@ -452,20 +452,20 @@ const renderAboutModal = ({ modalView, setModalView }: any) => {
   );
 };
 
-const renderFavoritesModal = ({ setModalView,  setTodoTitle }: any) => {
+const renderFavoritesModal = ({ setModalView, setTodoTitle }: any) => {
   const listFavorites = JSON.parse(
     localStorage.getItem("PomodoroSuggestion") || "{}"
   );
 
   const selectFavorite = (item: any) => {
-     setModalView({
+    setModalView({
       aboutModal: false,
       timerModal: false,
       todoModal: false,
       favorites: false,
-    })
-    setTodoTitle(item)
-  }
+    });
+    setTodoTitle(item);
+  };
 
   return (
     <Modal
@@ -477,7 +477,6 @@ const renderFavoritesModal = ({ setModalView,  setTodoTitle }: any) => {
           todoModal: false,
           favorites: false,
         })
-       
       }
       modalTitle="Pick Favorites:"
     >
@@ -494,7 +493,11 @@ const renderFavoritesModal = ({ setModalView,  setTodoTitle }: any) => {
         <>
           {listFavorites.map((item: any) => (
             <>
-              <Button key={item.id} theme="success" onClick={() => selectFavorite(item.title)}>
+              <Button
+                key={item.id}
+                theme="success"
+                onClick={() => selectFavorite(item.title)}
+              >
                 {item.title}
               </Button>
             </>
@@ -510,9 +513,13 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
   let PomodoroSuggestion: any = [];
 
   const allState = useSelector((state: any) => state);
-  const shortBreak = useSelector((state: any) => state.pomodoroReducer.shortBreak);
+  const shortBreak = useSelector(
+    (state: any) => state.pomodoroReducer.shortBreak
+  );
   const longBreak = useSelector((state: any) => state.pomodoroReducerlongBreak);
-  const pomodoroDuration = useSelector((state: any) => state.pomodoroReducer.pomodoroDuration);
+  const pomodoroDuration = useSelector(
+    (state: any) => state.pomodoroReducer.pomodoroDuration
+  );
   const Lists = useSelector((state: any) => state.pomodoroReducer.Lists);
   const [lists, setLists] = useState(Lists);
   const [pomodoroDurationState, setpomodoroDurationState] = useState<number>(
@@ -560,7 +567,7 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
         favorites: false,
       },
     ],
-    
+
     updatedOrder: [
       {
         id: 1,
@@ -618,7 +625,6 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
       draggedTo: 0,
       isDragging: false,
     });
-    
   };
 
   const editTodoList = useCallback(
@@ -668,9 +674,9 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
       aboutModal: modalView.aboutModal,
       favoritesModal: modalView.favoritesModal,
     });
-    
-    if(lists !== Lists) {
-      setLists(Lists)
+
+    if (lists !== Lists) {
+      setLists(Lists);
     }
   };
 
@@ -714,8 +720,8 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
       });
     }
 
-    if(lists !== Lists) {
-      setLists(Lists)
+    if (lists !== Lists) {
+      setLists(Lists);
     }
   };
 
@@ -788,13 +794,14 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
   const updateOrder = () => {
     dispatch({
       type: UPDATE_ORDER,
-      lists: lists
-    })
-  }
+      lists: lists,
+    });
+  };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const checkFavorites = () => {
-    /*eslint-disable*/ 
+    /*eslint-disable*/
+
     Lists.map((item: any) => {
       if (item.favorites === true) {
         PomodoroSuggestion.push({
@@ -813,7 +820,7 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
       }
     });
   };
-  
+
   useEffect(() => {
     console.log(allState);
     let interval: any = null;
@@ -883,7 +890,6 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
     setSpecifiedTimer,
     checkFavorites,
     Lists,
-
   ]);
 
   useHotkeys("shift+p", () => toggle());

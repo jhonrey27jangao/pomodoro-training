@@ -9,7 +9,7 @@ import * as types from "./types";
 const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
   return (
     <DashBoardContainer>
-      <ItemContainer flexAs="4md">
+      <ItemContainer flexAs="25md">
         <ItemContent>
           <div className="top">
             <ItemIconContainer background="blue">
@@ -28,7 +28,7 @@ const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
           </div>
         </ItemContent>
       </ItemContainer>
-      <ItemContainer flexAs="4md">
+      <ItemContainer flexAs="25md">
         <ItemContent>
           <div className="top">
             <ItemIconContainer background="red">
@@ -48,7 +48,7 @@ const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
           </div>
         </ItemContent>
       </ItemContainer>
-      <ItemContainer flexAs="4md">
+      <ItemContainer flexAs="25md">
         <ItemContent>
           <div className="top">
             <ItemIconContainer background="green">
@@ -67,7 +67,7 @@ const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
           </div>
         </ItemContent>
       </ItemContainer>
-      <ItemContainer flexAs="4md">
+      <ItemContainer flexAs="25md">
         <ItemContent>
           <div className="top">
             <ItemIconContainer background="dark">

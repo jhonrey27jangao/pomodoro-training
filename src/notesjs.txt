@@ -1,0 +1,3 @@
+/* sorting array with prperty */
+homes.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+/* sorting array with prperty */

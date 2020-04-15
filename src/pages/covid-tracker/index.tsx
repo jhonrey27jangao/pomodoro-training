@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import CountryInfo from "./country-info";
 import CovidInfo from "./covid-info";
-
 import * as actions from "../../ducks/covid-tracker/actions";
-
-import { useSelector } from "react-redux";
 
 const IndexPage: React.FC = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import * as types from "./types";
+
 export const DashBoardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -11,10 +12,40 @@ export const DashBoardContainer = styled.div`
 export const ItemContainer = styled.div<types.ItemProps>`
   flex-grow: 0;
   max-width: ${(props) =>
-    props.flexAs === "4md" ? "25%" : props.flexAs === "3md" ? "30%" : "49%"};
+    props.flexAs === "25md"
+      ? "25%"
+      : props.flexAs === "30md"
+      ? "30%"
+      : props.flexAs === "60md"
+      ? "60%"
+      : props.flexAs === "40md"
+      ? "40%"
+      : props.flexAs === "70md"
+      ? "70%"
+      : props.flexAs === "50md"
+      ? "50%"
+      : "100%"};
   flex-basis: ${(props) =>
-    props.flexAs === "4md" ? "25%" : props.flexAs === "3md" ? "30%" : "49%"}};
-  padding: 0 15px;
+    props.flexAs === "25md"
+      ? "25%"
+      : props.flexAs === "30md"
+      ? "30%"
+      : props.flexAs === "60md"
+      ? "60%"
+      : props.flexAs === "40md"
+      ? "40%"
+      : props.flexAs === "70md"
+      ? "70%"
+      : props.flexAs === "50md"
+      ? "50%"
+      : "100%"};
+
+  padding: ${(props) => (props.unPadd === true ? "0" : "0 15px")};
+
+  & .map-container {
+    position: absolute !important;
+    right: 0;
+  }
 `;
 
 export const ItemContent = styled.div`
@@ -160,26 +191,38 @@ export const ItemInfoContainer = styled.div`
 
 export const TableContainer = styled.div<types.ItemProps>`
   overflow-y: scroll;
-  height: 250px;
+  height: 300px;
   scroll-behavior: smooth;
 
+  .sort-button {
+    border: none;
+    background: none;
+    font-weight: 900;
+    font-size: 15px;
+    color: #00acc1;
+    width: 20px;
+    cursor: pointer;
+    margin-left: 2px;
+  }
+
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
   }
 
-  /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #888;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #eee;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
   }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background: #eee;
   }
   & table {
     text-align: left;
@@ -212,6 +255,7 @@ export const TableContainer = styled.div<types.ItemProps>`
     & tbody {
       tr {
         :hover {
+          cursor: pointer;
           background: #eee;
         }
       }
@@ -227,6 +271,106 @@ export const TableContainer = styled.div<types.ItemProps>`
       font-weight: 300;
       line-height: 1.42857143;
       vertical-align: middle;
+
+      & button {
+        width: 100%;
+        border: 2px solid #00809d;
+        background: none;
+        padding: 4px;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0px 3px 10px #cecece;
+
+        & .country-name {
+          text-align: left;
+          display: block;
+          color: #00809d;
+          font-weight: bold;
+          font-size: 14px;
+        }
+
+        & .country-cases {
+          display: block;
+          text-align: left;
+          color: #999;
+          padding-top: 3px;
+        }
+      }
+    }
+  }
+`;
+
+export const CountryView = styled.div`
+  .heal-button {
+    position: absolute;
+    bottom: -25px;
+    right: 0px;
+    width: 250px;
+    height: 20px;
+    border: none;
+    border-radius: 20px;
+    background: #00acc1;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 250px;
+  height: 200px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  opacity: 0.9;
+
+  h2 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    line-height: 22px;
+    color: #333;
+    font-weight: bold;
+  }
+
+  .sub-info {
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.05);
+    padding: 10px 5px 5px;
+
+    h3 {
+      color: #de3700;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .cases {
+      .case-number {
+        font-size: 32px;
+        color: #de3700;
+        font-weight: bold;
+        line-height: 40px;
+      }
+    }
+
+    p {
+      font-size: 12px;
+      color: #333;
+      line-height: 1.3;
+      font-weight: 600;
+
+      .value {
+        text-align: right;
+        font-size: 11px;
+        line-height: 15px;
+        margin-left: 8px;
+        background-color: #f5f5f5;
+        border-radius: 2px;
+        padding: 1px 4px 2px 4px;
+        font-weight: 600;
+      }
     }
   }
 `;
