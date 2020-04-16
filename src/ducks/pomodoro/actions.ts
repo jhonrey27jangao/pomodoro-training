@@ -1,35 +1,35 @@
 export const ADD_TODO = "ADD_TODO";
 export const UPDATE_TIMER = "UPDATE_TIMER";
-export const UPDATE_TODO = 'UPDATE_TODO';
-export const DELETE_TODO = 'DELETE_TODO';
-export const DRAG_TODO = 'DRAG_TODO';
-export const UPDATE_ORDER = 'UPDATE_ORDER'
+export const UPDATE_TODO = "UPDATE_TODO";
+export const DELETE_TODO = "DELETE_TODO";
+export const DRAG_TODO = "DRAG_TODO";
+export const UPDATE_ORDER = "UPDATE_ORDER";
 
 export const addTodo = ({
   title,
   savedLongBreak,
   savedPomodoro,
-  savedShortBreak
+  savedShortBreak,
 }: any) => {
   return {
     type: ADD_TODO,
     title: title,
     savedPomodoro: savedPomodoro,
     savedLongBreak: savedLongBreak,
-    savedShortBreak: savedShortBreak
+    savedShortBreak: savedShortBreak,
   };
 };
 
 export const updateTimer = ({
   pomodoroDuration,
   longBreak,
-  shortBreak
+  shortBreak,
 }: any) => {
   return {
     type: UPDATE_TIMER,
     pomodoroDuration: pomodoroDuration,
     longBreak: longBreak,
-    shortBreak: shortBreak
+    shortBreak: shortBreak,
   };
 };
 
@@ -40,7 +40,7 @@ export const updateTodo = ({
   todoFavorites,
   savedPomodoro,
   savedLongBreak,
-  savedShortBreak
+  savedShortBreak,
 }: any) => {
   return {
     type: UPDATE_TODO,
@@ -50,33 +50,27 @@ export const updateTodo = ({
     todoFavorites: todoFavorites,
     savedPomodoro: savedPomodoro,
     savedLongBreak: savedLongBreak,
-    savedShortBreak: savedShortBreak
-  }
-}
+    savedShortBreak: savedShortBreak,
+  };
+};
 
-export const deleteTodo = ({
-  todoId,
-}: any) => {
+export const deleteTodo = ({ todoId }: any) => {
   return {
-    type: DELETE_TODO, 
+    type: DELETE_TODO,
     todoId: todoId,
-  }
-}
+  };
+};
 
-export const dragTodo = ({
-  id
-}: any) => {
+export const dragTodo = ({ id }: any) => {
   return {
     type: DRAG_TODO,
-    id: id
-  }
-}
+    id: id,
+  };
+};
 
-export const updateOrder = ({
-  lists
-}: any) => {
+export const updateOrder = ({ lists }: any) => {
   return {
     type: UPDATE_ORDER,
-    lists: lists
-  }
-}
+    lists: lists,
+  };
+};

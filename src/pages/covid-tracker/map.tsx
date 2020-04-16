@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { token, mapStyle } from "./api/map-info";
 import { Countries } from "./api/worldjson.js";
+import * as types from "./types";
 
-const Map: React.FC = () => {
+const Map: React.FC<types.MapProps> = ({ toBeMap }) => {
   const [viewport, setViewport] = useState({
     latitude: 12.415436073006665,
     longitude: 123.43105231968562,
@@ -12,6 +13,24 @@ const Map: React.FC = () => {
     height: "475px",
   });
 
+  const checkCountryToBeMap = () => {
+    Countries.map((item: any) => {
+      if (item.name === toBeMap) {
+        setViewport({
+          latitude: item.latlng[0],
+          longitude: item.latlng[1],
+          zoom: 5,
+          width: "100%",
+          height: "475px",
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    checkCountryToBeMap();
+    console.log("rendering-map");
+  }, [toBeMap]);
   return (
     <ReactMapGL
       {...viewport}
@@ -38,8 +57,8 @@ const Map: React.FC = () => {
           >
             <img
               style={{
-                width: "70px",
-                height: "70px",
+                width: "100",
+                height: "100px",
               }}
               src={require("../../assets/images/infected-blood.png")}
               alt={country.name}

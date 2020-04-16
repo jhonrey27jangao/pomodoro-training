@@ -511,8 +511,6 @@ const renderFavoritesModal = ({ setModalView, setTodoTitle }: any) => {
 const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
   const dispatch = useDispatch();
   let PomodoroSuggestion: any = [];
-
-  const allState = useSelector((state: any) => state);
   const shortBreak = useSelector(
     (state: any) => state.pomodoroReducer.shortBreak
   );
@@ -822,7 +820,6 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
   };
 
   useEffect(() => {
-    console.log(allState);
     let interval: any = null;
     checkFavorites();
     if (toggleTimer) {

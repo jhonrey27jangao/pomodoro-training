@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   DashBoardContainer,
   ItemContainer,
@@ -9,12 +9,17 @@ import {
   CountryView,
 } from "./styles";
 import * as types from "./types";
-import { NotCountry } from "./api/worldjson";
 import Map from "./map";
 
-const CountryInfo: React.FC<types.CountryInfoProps> = ({ countries }) => {
+const CountryInfo: React.FC<types.CountryInfoProps> = ({
+  countries,
+  worldInfo,
+}) => {
+  const [countryList, setCountryList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [sortedCountry, setSortedCountry] = useState(false);
-
+  const [alpha, setAlpha] = useState(false);
+  const [sortDeathsOrRecovered, setsortDeathsOrRecovered] = useState(false);
   const [countryView, setCountryView] = useState({
     viewName: "",
     viewCases: 0,
@@ -24,30 +29,82 @@ const CountryInfo: React.FC<types.CountryInfoProps> = ({ countries }) => {
     viewTodayDeaths: 0,
   });
 
-  const ascendingCountry = () => {
-    countries.sort(
+  const ascendingCountry = useCallback(() => {
+    countryList.sort(
       (a: any, b: any) => parseFloat(b.cases) - parseFloat(a.cases)
     );
+    setAlpha(false);
     setSortedCountry(true);
-  };
+  }, [countryList]);
 
-  const descendingCountry = () => {
-    countries.sort(
+  const descendingCountry = useCallback(() => {
+    countryList.sort(
       (a: any, b: any) => parseFloat(a.cases) - parseFloat(b.cases)
     );
     setSortedCountry(false);
-  };
+    setAlpha(false);
+  }, [countryList]);
 
-  const sortCountry = (status: boolean) => {
-    if (status === false) {
-      ascendingCountry();
-    } else {
-      descendingCountry();
-    }
-  };
+  const sortCountry = useCallback(
+    (status: boolean) => {
+      if (status === false) {
+        ascendingCountry();
+      } else {
+        descendingCountry();
+      }
+      setAlpha(false);
+    },
+    [ascendingCountry, descendingCountry]
+  );
+
+  const ascendingDeaths = useCallback(() => {
+    countryList.sort(
+      (a: any, b: any) => parseFloat(b.deaths) - parseFloat(a.deaths)
+    );
+    setsortDeathsOrRecovered(true);
+    setAlpha(false);
+  }, [countryList]);
+
+  const ascendingRecoveries = useCallback(() => {
+    countryList.sort(
+      (a: any, b: any) => parseFloat(b.recovered) - parseFloat(a.recovered)
+    );
+    setsortDeathsOrRecovered(false);
+    setAlpha(false);
+  }, [countryList]);
+
+  const sortAlpha = useCallback(() => {
+    setAlpha(!alpha);
+    countryList.sort(function (a: any, b: any) {
+      if (a.country < b.country) {
+        return -1;
+      }
+      if (a.country > b.country) {
+        return 1;
+      }
+      return 0;
+    });
+  }, [countryList, alpha]);
+
+  const handleSearch = useCallback((e) => {
+    let getTerm = e.target.value;
+    setSearchTerm(getTerm);
+  }, []);
+
   useEffect(() => {
-    console.log(countries, "Countries");
-  }, [countries]);
+    const results = countries.filter((country: any) =>
+      country.country.toLowerCase().includes(searchTerm)
+    );
+    setCountryList(results);
+    setCountryView({
+      viewName: "World",
+      viewCases: worldInfo.cases,
+      viewDeaths: worldInfo.deaths,
+      viewTodayCases: 0,
+      viewTodayDeaths: 0,
+      viewRecovered: worldInfo.recovered,
+    });
+  }, [countries, searchTerm, worldInfo]);
 
   const renderOverView = () => {
     return (
@@ -87,6 +144,21 @@ const CountryInfo: React.FC<types.CountryInfoProps> = ({ countries }) => {
       </>
     );
   };
+
+  const displayCountry = useCallback(
+    (item: any) => {
+      setCountryView({
+        viewName: item.country,
+        viewCases: item.cases,
+        viewDeaths: item.deaths,
+        viewRecovered: item.recovered,
+        viewTodayCases: item.todayCases,
+        viewTodayDeaths: item.todayDeaths,
+      });
+    },
+    [setCountryView]
+  );
+
   return (
     <DashBoardContainer>
       <ItemContainer flexAs="30md" unPadd>
@@ -104,70 +176,97 @@ const CountryInfo: React.FC<types.CountryInfoProps> = ({ countries }) => {
                   <tr>
                     <th>Country Name</th>
                     <th>
-                      Sort:
+                      <button
+                        className="sort-button-alpha"
+                        onClick={() => sortAlpha()}
+                        disabled={alpha}
+                      >
+                        &#8593; &#65;&#66;
+                      </button>
                       {sortedCountry ? (
                         <button
-                          className="sort-button"
+                          className="sort-button-cases"
                           onClick={() => sortCountry(true)}
                         >
-                          &#8593;
+                          &#8593;C
                         </button>
                       ) : (
                         <button
-                          className="sort-button"
+                          className="sort-button-cases"
                           onClick={() => sortCountry(false)}
                         >
-                          &#8595;
+                          &#8595;C
+                        </button>
+                      )}
+                      {sortDeathsOrRecovered === false ? (
+                        <button
+                          className="sort-button-cases"
+                          onClick={() => ascendingDeaths()}
+                        >
+                          &#8593;D
+                        </button>
+                      ) : (
+                        <button
+                          className="sort-button-cases"
+                          onClick={() => ascendingRecoveries()}
+                        >
+                          &#8593;R
                         </button>
                       )}
                     </th>
                   </tr>
-                </thead>
-                <tbody>
                   <tr>
                     <td colSpan={2}>
                       <input
                         type="text"
                         width={200}
-                        placeholder="Filter countries"
+                        placeholder="Search country .."
+                        onChange={(e) => handleSearch(e)}
                       />
                     </td>
                   </tr>
-                  {NotCountry.map((notcountry: any) => (
-                    <>
-                      {countries.map((item: any, index: any) => (
-                        <>
-                          {item.country !== notcountry.name ? (
-                            <tr key={index}>
-                              <td colSpan={2}>
-                                <button
-                                  onClick={() =>
-                                    setCountryView({
-                                      viewName: item.country,
-                                      viewCases: item.cases,
-                                      viewDeaths: item.deaths,
-                                      viewRecovered: item.recovered,
-                                      viewTodayCases: item.todayCases,
-                                      viewTodayDeaths: item.todayDeaths,
-                                    })
-                                  }
-                                >
-                                  <span className="country-name">
-                                    {item.country}
-                                  </span>
-                                  <span className="country-cases">
-                                    {item.cases}
-                                  </span>
-                                </button>
-                              </td>
-                            </tr>
-                          ) : (
-                            ""
-                          )}
-                        </>
-                      ))}
-                    </>
-                  ))}
+                </thead>
+                <tbody>
+                  {countryList.map((item: any, index: any) => {
+                    if (
+                      item.country === "" ||
+                      item.country === "Total:" ||
+                      item.country === "Asia" ||
+                      item.country === "North America" ||
+                      item.country === "South America" ||
+                      item.country === "Oceania" ||
+                      item.country === "Australia" ||
+                      item.country === "Europe" ||
+                      item.country === "Antartica" ||
+                      item.country === "Africa"
+                    ) {
+                      return <></>;
+                    } else {
+                      return (
+                        <tr key={index}>
+                          <td colSpan={2}>
+                            <p
+                              className="country-container"
+                              onClick={() => displayCountry(item)}
+                            >
+                              <span className="country-name">
+                                {item.country}
+                              </span>
+                              <span className="country-cases">
+                                C: {item.cases}
+                              </span>
+                              <span className="country-deaths">
+                                D: {item.deaths}
+                              </span>
+                              <span className="country-recoveries">
+                                R: {item.recovered}
+                              </span>
+                            </p>
+                          </td>
+                        </tr>
+                      );
+                    }
+                  })}
                 </tbody>
               </table>
             </TableContainer>
@@ -185,7 +284,7 @@ const CountryInfo: React.FC<types.CountryInfoProps> = ({ countries }) => {
       <ItemContainer flexAs="70md" unPadd>
         <ItemContainer flexAs="full">
           <ItemContent>
-            <Map />
+            <Map toBeMap={countryView.viewName} />
             {renderOverView()}
           </ItemContent>
         </ItemContainer>

@@ -6,6 +6,7 @@ import {
   ItemIconContainer,
 } from "./styles";
 import * as types from "./types";
+
 const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
   return (
     <DashBoardContainer>

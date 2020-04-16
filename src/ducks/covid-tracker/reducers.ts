@@ -17,7 +17,6 @@ export const getInfoReducer = (state: any = covidTrackerState, action: any) => {
         ...state,
         loading: true,
       };
-      console.log(action.type);
       return state;
 
     case actions.GET_INFO_SUCCESS:
@@ -26,15 +25,12 @@ export const getInfoReducer = (state: any = covidTrackerState, action: any) => {
         info: { ...action.payload },
         loading: false,
       };
-      console.log(state);
-      console.log(action.type, "DATA:", action.payload);
       return state;
     case actions.GET_INFO_FAILURE:
       state = {
         ...state,
         loading: false,
       };
-      console.log(action.type);
       return state;
     default:
       return state;

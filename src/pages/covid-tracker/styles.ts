@@ -194,15 +194,43 @@ export const TableContainer = styled.div<types.ItemProps>`
   height: 300px;
   scroll-behavior: smooth;
 
-  .sort-button {
-    border: none;
+  input {
+    width: 100%;
+    border: 1px solid #ddd;
+    cursor: text;
+    box-sizing: border-box;
+    text-transform: lowercase;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px #eee;
+  }
+
+  .sort-button-cases {
+    width: 45px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 20px;
     background: none;
     font-weight: 900;
     font-size: 15px;
     color: #00acc1;
-    width: 20px;
     cursor: pointer;
     margin-left: 2px;
+    padding: 3px 0;
+  }
+
+  .sort-button-alpha {
+    width: 55px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    background: none;
+    font-weight: 900;
+    font-size: 15px;
+    margin-left: 2px;
+    color: #00acc1;
+    cursor: pointer;
+    padding: 3px 5px;
   }
 
   ::-webkit-scrollbar {
@@ -234,17 +262,8 @@ export const TableContainer = styled.div<types.ItemProps>`
     background-color: transparent;
 
     & th {
-      color: ${(props) =>
-        props.background === "blue"
-          ? "#00acc1"
-          : props.background === "green"
-          ? "#43a047"
-          : props.background === "red"
-          ? "#e53935"
-          : props.background === "dark"
-          ? "#000"
-          : "#fb8c00"};
-      padding: 10px 8px 8px;
+      color: #333;
+      padding: 10px 8px 0;
       font-size: 0.8125rem;
       font-family: "Roboto", "Helvetica", "Arial", sans-serif;
       font-weight: 600;
@@ -272,7 +291,7 @@ export const TableContainer = styled.div<types.ItemProps>`
       line-height: 1.42857143;
       vertical-align: middle;
 
-      & button {
+      & .country-container {
         width: 100%;
         border: 2px solid #00809d;
         background: none;
@@ -290,10 +309,35 @@ export const TableContainer = styled.div<types.ItemProps>`
         }
 
         & .country-cases {
-          display: block;
+          display: inline-block;
           text-align: left;
-          color: #999;
+          color: #333;
+          font-weight: bold;
+          background-color: #f5f5f5;
+          border-radius: 2px;
+          padding: 3px 4px 2px 4px;
+        }
+
+        & .country-deaths {
+          display: inline-block;
+          text-align: left;
+          background-color: #de3700;
+          border-radius: 2px;
+          padding: 1px 4px 2px 4px;
+          margin-left: 20px;
+          font-weight: bold;
+          color: #fff;
           padding-top: 3px;
+        }
+
+        & .country-recoveries {
+          display: inline;
+          text-align: left;
+          color: #fff;
+          background-color: #43a047;
+          margin-left: 20px;
+          padding: 3px 4px 2px 4px;
+          font-weight: bold;
         }
       }
     }
@@ -373,4 +417,59 @@ export const CountryView = styled.div`
       }
     }
   }
+`;
+
+export const InputContainer = styled.div`
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  padding-bottom: 10px;
+
+  & span {
+    border-radius: 6px 0 0 6px;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 25px;
+    color: #99a3ba;
+    background: #eef4ff;
+    border: 1px solid #cdd9ed;
+    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+  }
+
+  & input {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    color: #99a3ba;
+    border: 1px solid #cdd9ed;
+    background: #fff;
+    transition: border 0.3s ease;
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0 6px 6px 0;
+
+    & :placeholder {
+      color: #cbd1dc;
+    }
+  }
+`;
+
+export const StyledErrorMessage = styled.div`
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: #ff0000;
+  font-size: 13px;
+  padding-left: 5px;
 `;

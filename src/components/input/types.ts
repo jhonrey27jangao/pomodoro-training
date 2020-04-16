@@ -10,4 +10,5 @@ export type InputProps = {
   id?: string;
   center?: boolean;
   name?: string;
+  props?: any;
 };

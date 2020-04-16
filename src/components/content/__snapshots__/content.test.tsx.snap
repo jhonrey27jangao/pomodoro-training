@@ -3,19 +3,7 @@
 exports[`Test for Content Component should render Content 1`] = `
 <div>
   <div
-    class="sc-AxjAm hiZnOP"
-  >
-    <h1
-      class="title-page"
-    />
-  </div>
-</div>
-`;
-
-exports[`Test for Section Component should render Section 1`] = `
-<div>
-  <div
-    class="sc-AxjAm hiZnOP"
+    class="sc-AxjAm fzlkPl"
   >
     <h1
       class="title-page"

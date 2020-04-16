@@ -1,27 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test for Button Component should render Button  dark theme 1`] = `
-<div>
-  <button
-    class="sc-AxirZ bVUxGo"
-    type="submit"
-  />
-</div>
-`;
-
 exports[`Test for Button Component should render Button  default theme 1`] = `
 <div>
   <button
-    class="sc-AxirZ bVUxGo"
+    class="sc-AxiKw jXfssU"
     type="submit"
-  />
+  >
+    <span
+      class="sc-AxjAm eliavK"
+    />
+  </button>
 </div>
 `;
 
 exports[`Test for Button Component should render Button  success theme 1`] = `
 <div>
   <button
-    class="sc-AxirZ bVUxGo"
+    class="sc-AxirZ Vhqeo"
     type="submit"
   />
 </div>
@@ -30,52 +25,7 @@ exports[`Test for Button Component should render Button  success theme 1`] = `
 exports[`Test for Button Component should render Button  warning theme 1`] = `
 <div>
   <button
-    class="sc-AxirZ bVUxGo"
-    type="submit"
-  />
-</div>
-`;
-
-exports[`Test for Button Component should render Button 1`] = `
-<div>
-  <button
-    class="sc-AxirZ bVUxGo"
-    type="submit"
-  />
-</div>
-`;
-
-exports[`Test for Button Component should render Button 2`] = `
-<div>
-  <button
-    class="sc-AxirZ bVUxGo"
-    type="submit"
-  />
-</div>
-`;
-
-exports[`Test for Button Component should render Button 3`] = `
-<div>
-  <button
-    class="sc-AxirZ bVUxGo"
-    type="submit"
-  />
-</div>
-`;
-
-exports[`Test for Button Component should render Button 4`] = `
-<div>
-  <button
-    class="sc-AxirZ bVUxGo"
-    type="submit"
-  />
-</div>
-`;
-
-exports[`Test for Button Component should render Button with dark  1`] = `
-<div>
-  <button
-    class="sc-AxirZ bVUxGo"
+    class="sc-AxirZ bULvc"
     type="submit"
   />
 </div>
@@ -84,8 +34,12 @@ exports[`Test for Button Component should render Button with dark  1`] = `
 exports[`Test for Button Component should render Button with dark theme 1`] = `
 <div>
   <button
-    class="sc-AxirZ bVUxGo"
+    class="sc-AxiKw dOcvua"
     type="submit"
-  />
+  >
+    <span
+      class="sc-AxjAm eliavK"
+    />
+  </button>
 </div>
 `;

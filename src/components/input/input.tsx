@@ -13,6 +13,7 @@ const InputComponent = React.memo(
     height,
     center,
     name,
+    props,
   }: InputProps) => {
     return (
       <StyledInput
@@ -25,6 +26,7 @@ const InputComponent = React.memo(
         center={center}
         height={height}
         name={name}
+        props={props}
       />
     );
   }
@@ -40,6 +42,7 @@ export const Input: React.FC<InputProps> = ({
   id,
   center,
   name,
+  props,
 }) => {
   return (
     <InputComponent
@@ -52,6 +55,7 @@ export const Input: React.FC<InputProps> = ({
       id={id}
       center={center}
       name={name}
+      props={props}
     />
   );
 };
