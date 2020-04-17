@@ -8,3 +8,14 @@ exports[`Test for Input Component should render Input 1`] = `
   />
 </div>
 `;
+
+exports[`Test for Input Component should render Input 2`] = `
+<div>
+  <input
+    class="sc-AxjAm fcaPGr"
+    height="big"
+    value=""
+    width="20"
+  />
+</div>
+`;

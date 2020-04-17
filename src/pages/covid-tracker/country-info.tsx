@@ -79,9 +79,6 @@ const CountryInfo: React.FC<types.CountryInfoProps> = ({
       if (a.country < b.country) {
         return -1;
       }
-      if (a.country > b.country) {
-        return 1;
-      }
       return 0;
     });
   }, [countryList, alpha]);
@@ -220,6 +217,7 @@ const CountryInfo: React.FC<types.CountryInfoProps> = ({
                       <input
                         type="text"
                         width={200}
+                        id="search"
                         placeholder="Search country .."
                         onChange={(e) => handleSearch(e)}
                       />

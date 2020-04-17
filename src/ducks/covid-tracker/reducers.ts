@@ -1,6 +1,6 @@
 import * as actions from "./actions";
 
-const covidTrackerState = {
+export const covidTrackerState = {
   loading: false,
   info: {
     cases: 0,
@@ -51,7 +51,7 @@ export const getCountriesReducer = (
     case actions.GET_COUNTRIES_SUCCESS:
       state = {
         ...state,
-        countries: [...action.payload],
+        countries: action.payload,
         loading: false,
       };
       return state;

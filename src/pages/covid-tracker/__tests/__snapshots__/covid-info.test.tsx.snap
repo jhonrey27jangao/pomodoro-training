@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for CovidInfo Component should render CovidInfo component 1`] = `
+<div>
+  <div
+    class="sc-AxjAm jzMSHk"
+  >
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb krsugi"
+          >
+            <span>
+              <img
+                alt="Infected"
+                src="infected.png"
+              />
+            </span>
+          </div>
+          <p>
+            Cases:
+          </p>
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb knOXta"
+          >
+            <span>
+              <img
+                alt=" deats"
+                src="death.png"
+              />
+            </span>
+          </div>
+          <p>
+            Deaths:
+          </p>
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb XTtAT"
+          >
+            <span>
+              <img
+                alt="Infected"
+                src="recovered.png"
+              />
+            </span>
+          </div>
+          <p>
+            Recoveries:
+          </p>
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb cpNgZK"
+          >
+            <span>
+              <img
+                alt="Infected"
+                src="github.png"
+              />
+            </span>
+          </div>
+          <p>
+            Api Info:
+          </p>
+          <a
+            href="https://github.com/javieraviles/covidAPI"
+          >
+            Live Coronavirus API
+          </a>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Test for Signup Component should render SignUp component 1`] = `
+<div>
+  <div
+    class="sc-AxjAm jzMSHk"
+  >
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb krsugi"
+          >
+            <span>
+              <img
+                alt="Infected"
+                src="infected.png"
+              />
+            </span>
+          </div>
+          <p>
+            Cases:
+          </p>
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb knOXta"
+          >
+            <span>
+              <img
+                alt=" deats"
+                src="death.png"
+              />
+            </span>
+          </div>
+          <p>
+            Deaths:
+          </p>
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb XTtAT"
+          >
+            <span>
+              <img
+                alt="Infected"
+                src="recovered.png"
+              />
+            </span>
+          </div>
+          <p>
+            Recoveries:
+          </p>
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb cpNgZK"
+          >
+            <span>
+              <img
+                alt="Infected"
+                src="github.png"
+              />
+            </span>
+          </div>
+          <p>
+            Api Info:
+          </p>
+          <a
+            href="https://github.com/javieraviles/covidAPI"
+          >
+            Live Coronavirus API
+          </a>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

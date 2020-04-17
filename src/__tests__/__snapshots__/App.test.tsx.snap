@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for App Component should render App 1`] = `
+<div>
+  <div
+    id="main"
+  >
+    <div
+      class="sc-fznJRM kcNyfq"
+    >
+      <div
+        class="sc-fzoiQi eJBvFQ"
+      >
+        <a
+          href="sadad"
+        >
+          Ricardo.
+        </a>
+      </div>
+      <div
+        class="sc-fznWqX eLDCzX"
+      >
+        <ul
+          class="sideBar-nav"
+        >
+          <a
+            href="/"
+          >
+            <li>
+              Home
+            </li>
+          </a>
+          <a
+            href="/pomodoro"
+          >
+            <li>
+              Pomodoro
+            </li>
+          </a>
+          <a
+            href="/covid-tracker"
+          >
+            <li>
+              Covid Tracker
+            </li>
+          </a>
+        </ul>
+        <ul
+          class="sideBar-social"
+        >
+          <li
+            class="ss-fb"
+          >
+            <a
+              href="https://facebook.com"
+            >
+              <span>
+                Facebook
+              </span>
+            </a>
+          </li>
+          <li
+            class="ss-insta"
+          >
+            <a
+              href="https://instagram.com"
+            >
+              <span>
+                Instagram
+              </span>
+            </a>
+          </li>
+          <li
+            class="ss-dribble"
+          >
+            <a
+              href="https://dribble.com"
+            >
+              <span>
+                Gmail
+              </span>
+            </a>
+          </li>
+          <li
+            class="ss-twitter"
+          >
+            <a
+              href="https://twitter.com"
+            >
+              <span>
+                Twitter
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="sc-fzqARJ kxkqau"
+      title="Covid Tracker:"
+    >
+      <h1
+        class="title-page"
+      >
+        Covid Tracker:
+      </h1>
+      <div />
+    </div>
+  </div>
+</div>
+`;

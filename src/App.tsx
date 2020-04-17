@@ -1,9 +1,7 @@
 import React from "react";
 import Main from "./pages";
 const Portfolio: React.FC = () => {
-  return (
-      <Main />
-  );
+  return <Main />;
 };
 
 Portfolio.displayName = "Portfolio";

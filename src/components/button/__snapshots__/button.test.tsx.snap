@@ -16,8 +16,9 @@ exports[`Test for Button Component should render Button  default theme 1`] = `
 exports[`Test for Button Component should render Button  success theme 1`] = `
 <div>
   <button
-    class="sc-AxirZ Vhqeo"
+    class="sc-AxirZ gcUomq"
     type="submit"
+    width="20"
   />
 </div>
 `;
@@ -34,12 +35,23 @@ exports[`Test for Button Component should render Button  warning theme 1`] = `
 exports[`Test for Button Component should render Button with dark theme 1`] = `
 <div>
   <button
-    class="sc-AxiKw dOcvua"
+    class="sc-AxiKw ifYruF"
     type="submit"
+    width="30"
   >
     <span
       class="sc-AxjAm eliavK"
     />
   </button>
+</div>
+`;
+
+exports[`Test for Button Component should render Button with no theme and rounded 1`] = `
+<div>
+  <button
+    class="sc-AxirZ ehOcuz"
+    type="submit"
+    width="30"
+  />
 </div>
 `;

@@ -16,7 +16,7 @@ type pomodoroStateProps = {
   }>;
 };
 
-const PomodoroState: pomodoroStateProps = {
+export const PomodoroState: pomodoroStateProps = {
   pomodoroDuration: 25,
   shortBreak: 10,
   longBreak: 15,
@@ -38,10 +38,7 @@ const PomodoroState: pomodoroStateProps = {
 //   localStorage.getItem("PomodoroState") || "{}"
 // );
 
-export const pomodoroReducer = (
-  state: any = PomodoroState || PomodoroState,
-  action: any
-) => {
+export const pomodoroReducer = (state: any = PomodoroState, action: any) => {
   switch (action.type) {
     case actions.ADD_TODO:
       state = {

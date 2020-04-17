@@ -9,10 +9,28 @@ exports[`Test for Label Component should render Label with type of h1 1`] = `
 </div>
 `;
 
+exports[`Test for Label Component should render Label with type of h1 else 1`] = `
+<div>
+  <h1
+    class="sc-AxjAm eICAoy"
+    type="h1"
+  />
+</div>
+`;
+
 exports[`Test for Label Component should render Label with type of h2 1`] = `
 <div>
   <h2
     class="sc-AxirZ jqKvRD"
+    type="h2"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of h2 else 1`] = `
+<div>
+  <h2
+    class="sc-AxirZ dXCNQn"
     type="h2"
   />
 </div>
@@ -27,6 +45,15 @@ exports[`Test for Label Component should render Label with type of h3 1`] = `
 </div>
 `;
 
+exports[`Test for Label Component should render Label with type of h3 else 1`] = `
+<div>
+  <h3
+    class="sc-AxiKw bbuzBf"
+    type="h3"
+  />
+</div>
+`;
+
 exports[`Test for Label Component should render Label with type of h4 1`] = `
 <div>
   <h4
@@ -36,10 +63,28 @@ exports[`Test for Label Component should render Label with type of h4 1`] = `
 </div>
 `;
 
+exports[`Test for Label Component should render Label with type of h4 else 1`] = `
+<div>
+  <h4
+    class="sc-AxhCb kEKZzs"
+    type="h4"
+  />
+</div>
+`;
+
 exports[`Test for Label Component should render Label with type of p 1`] = `
 <div>
   <p
     class="sc-AxhUy cFPoJa"
+    type="p"
+  />
+</div>
+`;
+
+exports[`Test for Label Component should render Label with type of p else 1`] = `
+<div>
+  <p
+    class="sc-AxhUy dZlSer"
     type="p"
   />
 </div>

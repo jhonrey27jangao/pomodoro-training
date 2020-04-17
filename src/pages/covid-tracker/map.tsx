@@ -49,23 +49,14 @@ const Map: React.FC<types.MapProps> = ({ toBeMap }) => {
           latitude={country.latlng[0]}
           longitude={country.latlng[1]}
         >
-          <button
+          <img
             style={{
-              border: "none",
-              background: "none",
-              cursor: "pointer",
+              width: "100",
+              height: "100px",
             }}
-            onClick={() => console.log(country.name)}
-          >
-            <img
-              style={{
-                width: "100",
-                height: "100px",
-              }}
-              src={require("../../assets/images/infected-blood.png")}
-              alt={country.name}
-            />
-          </button>
+            src={require("../../assets/images/infected-blood.png")}
+            alt={country.name}
+          />
         </Marker>
       ))}
     </ReactMapGL>

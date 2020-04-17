@@ -2,7 +2,7 @@ import { takeLatest, put, call } from "redux-saga/effects";
 import * as actions from "./actions";
 import Axios from "axios";
 
-function* getInfoAsync() {
+export function* getInfoAsync() {
   try {
     const getData = async () => {
       const { data } = await Axios.get(
@@ -17,7 +17,7 @@ function* getInfoAsync() {
   }
 }
 
-function* getCountiesAsync() {
+export function* getCountriesAsync() {
   try {
     const getData = async () => {
       const { data } = await Axios.get(
@@ -34,5 +34,5 @@ function* getCountiesAsync() {
 
 export function* sagas() {
   yield takeLatest(actions.GET_INFO_REQUEST, getInfoAsync);
-  yield takeLatest(actions.GET_COUNTRIES_REQUEST, getCountiesAsync);
+  yield takeLatest(actions.GET_COUNTRIES_REQUEST, getCountriesAsync);
 }

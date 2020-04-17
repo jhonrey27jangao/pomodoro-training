@@ -4,7 +4,11 @@ import { SideBar } from "./sidebar";
 
 describe("Test for Sidebar Component", () => {
   it("should render Sidebar", () => {
-    const { container } = render(<SideBar />);
+    const { container } = render(
+      <>
+        <SideBar />
+      </>
+    );
     expect(container).toMatchSnapshot();
   });
 });
