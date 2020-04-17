@@ -5,6 +5,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { PomdoroProps } from "./types";
 import { StyledPomodoroDiv, PomodoroListChild, TableContainer } from "./styles";
+import { Label } from "../../components/label/label";
+import { Modal } from "../../components/modal/modal";
+import { Input } from "../../components/input/input";
+import { Button } from "../../components/button/button";
 import {
   UPDATE_TODO,
   UPDATE_ORDER,
@@ -12,10 +16,6 @@ import {
   ADD_TODO,
   DELETE_TODO,
 } from "../../ducks/pomodoro/actions";
-import { Label } from "../../components/label/label";
-import { Modal } from "../../components/modal/modal";
-import { Input } from "../../components/input/input";
-import { Button } from "../../components/button/button";
 
 const initialValues: any = {
   todoName: 0,

@@ -2,12 +2,10 @@ import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { store } from "../ducks/index";
-
-import { SideBar } from "../components/sidebar/sidebar";
-import { Content } from "../components/content/content";
-
 import Pomodoro from "./pomodoro-new";
 import CovidTracker from "./covid-tracker/";
+import { SideBar } from "../components/sidebar/sidebar";
+import { Content } from "../components/content/content";
 
 const HomePage: React.FC = () => <div></div>;
 

@@ -1,11 +1,11 @@
 import React from "react";
+import * as types from "./types";
 import {
   DashBoardContainer,
   ItemContainer,
   ItemContent,
   ItemIconContainer,
 } from "./styles";
-import * as types from "./types";
 
 const CovidInfo: React.FC<types.CovidInfoProps> = ({ info }) => {
   return (

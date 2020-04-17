@@ -34,12 +34,12 @@ const PomodoroState: pomodoroStateProps = {
   ],
 };
 
-const PomodoroStateStored = JSON.parse(
-  localStorage.getItem("PomodoroState") || "{}"
-);
+// const PomodoroStateStored = JSON.parse(
+//   localStorage.getItem("PomodoroState") || "{}"
+// );
 
 export const pomodoroReducer = (
-  state: any = PomodoroStateStored || PomodoroState,
+  state: any = PomodoroState || PomodoroState,
   action: any
 ) => {
   switch (action.type) {

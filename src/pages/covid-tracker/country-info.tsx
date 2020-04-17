@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
+import Map from "./map";
+import * as types from "./types";
 import {
   DashBoardContainer,
   ItemContainer,
@@ -8,8 +10,6 @@ import {
   ItemContent,
   CountryView,
 } from "./styles";
-import * as types from "./types";
-import Map from "./map";
 
 const CountryInfo: React.FC<types.CountryInfoProps> = ({
   countries,

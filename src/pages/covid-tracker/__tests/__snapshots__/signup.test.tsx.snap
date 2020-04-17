@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for Signup Component should render SignUp component 1`] = `
+<div>
+  <form
+    action="#"
+  >
+    <div
+      class="sc-fzoLsD lpgaGY"
+    >
+      <span>
+        Enter your first name:
+      </span>
+      <input
+        id="firstName"
+        name="firstName"
+        placeholder="Ricardo"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-fzpans cQIJqR"
+    />
+    <div
+      class="sc-fzoLsD lpgaGY"
+    >
+      <span>
+        Enter your middle name:
+      </span>
+      <input
+        id="middleName"
+        name="middleName"
+        placeholder="Dance"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-fzpans cQIJqR"
+    />
+    <div
+      class="sc-fzoLsD lpgaGY"
+    >
+      <span>
+        Enter your last name:
+      </span>
+      <input
+        id="lastName"
+        name="lastName"
+        placeholder="Milos"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-fzpans cQIJqR"
+    />
+    <div
+      class="sc-fzoLsD lpgaGY"
+    >
+      <span>
+        Enter your e-mail:
+      </span>
+      <input
+        id="email"
+        name="email"
+        placeholder="ricardomilos@gmail.com"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-fzpans cQIJqR"
+    />
+    <div
+      class="sc-fzoLsD lpgaGY"
+    >
+      <span>
+        Enter your user name:
+      </span>
+      <input
+        id="userName"
+        name="userName"
+        placeholder="I<3Ricardo123Milos"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-fzpans cQIJqR"
+    />
+    <div
+      class="sc-fzoLsD lpgaGY"
+    >
+      <span>
+        Enter your password:
+      </span>
+      <input
+        id="password"
+        name="password"
+        placeholder="**************"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-fzpans cQIJqR"
+    />
+    <div
+      class="sc-fzoLsD lpgaGY"
+    >
+      <span>
+        confirm your password:
+      </span>
+      <input
+        id="confirmPassword"
+        name="confirmPassword"
+        placeholder="**************"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-fzpans cQIJqR"
+    />
+    <button
+      class="sc-AxirZ Vhqeo"
+      type="submit"
+    >
+      Sign-Up
+    </button>
+  </form>
+</div>
+`;

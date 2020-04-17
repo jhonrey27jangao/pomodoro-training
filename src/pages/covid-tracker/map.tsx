@@ -8,18 +8,19 @@ const Map: React.FC<types.MapProps> = ({ toBeMap }) => {
   const [viewport, setViewport] = useState({
     latitude: 12.415436073006665,
     longitude: 123.43105231968562,
-    zoom: 4,
+    zoom: 7,
     width: "100%",
     height: "475px",
   });
 
   const checkCountryToBeMap = () => {
+    // eslint-disable-next-line array-callback-return
     Countries.map((item: any) => {
       if (item.name === toBeMap) {
         setViewport({
           latitude: item.latlng[0],
           longitude: item.latlng[1],
-          zoom: 5,
+          zoom: 7,
           width: "100%",
           height: "475px",
         });
@@ -30,6 +31,7 @@ const Map: React.FC<types.MapProps> = ({ toBeMap }) => {
   useEffect(() => {
     checkCountryToBeMap();
     console.log("rendering-map");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toBeMap]);
   return (
     <ReactMapGL

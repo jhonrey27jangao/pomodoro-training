@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CountryInfo from "./country-info";
 import CovidInfo from "./covid-info";
 import SignUpForm from "./signup";
-import * as actions from "../../ducks/covid-tracker/actions";
 import { Modal } from "../../components/modal/modal";
+import * as actions from "../../ducks/covid-tracker/actions";
 
 const IndexPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -14,7 +13,7 @@ const IndexPage: React.FC = () => {
     (state: any) => state.getCountriesReducer.countries
   );
 
-  const [showSignUp, setShowSignUp] = useState(true);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   useEffect(() => {
     dispatch(actions.getInfoRequest());
