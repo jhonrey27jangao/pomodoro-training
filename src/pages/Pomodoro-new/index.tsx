@@ -514,6 +514,7 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
   const shortBreak = useSelector(
     (state: any) => state.pomodoroReducer.shortBreak
   );
+  const allState = useSelector((state: any) => state);
   const longBreak = useSelector((state: any) => state.pomodoroReducerlongBreak);
   const pomodoroDuration = useSelector(
     (state: any) => state.pomodoroReducer.pomodoroDuration
@@ -821,6 +822,7 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
 
   useEffect(() => {
     let interval: any = null;
+    console.log(JSON.stringify(allState));
     checkFavorites();
     if (toggleTimer) {
       interval = setInterval(() => {
