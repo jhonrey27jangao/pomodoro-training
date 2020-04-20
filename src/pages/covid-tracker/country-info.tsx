@@ -170,9 +170,9 @@ const CountryInfo: React.FC<types.CountryInfoProps> = ({
             <TableContainer>
               <table>
                 <thead>
-                  <tr>
-                    <th>Country Name</th>
-                    <th>
+                  <tr key={1}>
+                    <th key={3}>Country Name</th>
+                    <th key={4}>
                       <button
                         className="sort-button-alpha"
                         onClick={() => sortAlpha()}
@@ -212,8 +212,8 @@ const CountryInfo: React.FC<types.CountryInfoProps> = ({
                       )}
                     </th>
                   </tr>
-                  <tr>
-                    <td colSpan={2}>
+                  <tr key={2}>
+                    <td colSpan={2} key={5}>
                       <input
                         type="text"
                         width={200}
@@ -242,7 +242,7 @@ const CountryInfo: React.FC<types.CountryInfoProps> = ({
                     } else {
                       return (
                         <tr key={index}>
-                          <td colSpan={2}>
+                          <td colSpan={2} key={index}>
                             <p
                               className="country-container"
                               onClick={() => displayCountry(item)}

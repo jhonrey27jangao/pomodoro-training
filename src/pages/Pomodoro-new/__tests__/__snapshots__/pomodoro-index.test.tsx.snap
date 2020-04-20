@@ -1,0 +1,613 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for Index Pomodoro App renders the component 1`] = `
+<div>
+  <form
+    action="#"
+  >
+    <h2
+      class="sc-AxhUy kUxjaF"
+      type="h2"
+    >
+      <span
+        style="font-family: 'Orbitron', sans-serif;"
+      >
+        Timer: 
+        <br />
+        25m:0s
+      </span>
+    </h2>
+    <div
+      class="sc-AxirZ iESHQS"
+    >
+      <button
+        class="sc-fznKkj kWHrLL"
+        disabled=""
+        type="submit"
+        width="100"
+      >
+        <span
+          class="sc-fzplWN gcyZgM"
+        >
+          ❚❚
+        </span>
+      </button>
+      <button
+        class="sc-fznKkj kWHrLL"
+        type="submit"
+        width="100"
+      >
+        <span
+          class="sc-fzplWN gcyZgM"
+        >
+          ▷
+        </span>
+      </button>
+      <button
+        class="sc-fznKkj kWHrLL"
+        type="submit"
+        width="100"
+      >
+        <span
+          class="sc-fzplWN gcyZgM"
+        >
+          ↻
+        </span>
+      </button>
+    </div>
+    <div
+      class="sc-AxjAm dNRMDR"
+    >
+      <div
+        class="sc-AxirZ khsKjH"
+      >
+        <input
+          class="sc-fzpans dJYYuJ"
+          id="todoName"
+          placeholder="Add todo"
+          value=""
+        />
+        <button
+          class="sc-fznKkj bHKJNM"
+          type="submit"
+        >
+          <span
+            class="sc-fzplWN gcyZgM"
+          >
+            Add Todo
+          </span>
+        </button>
+      </div>
+      <div
+        class="sc-AxirZ dfLLgI"
+      >
+        <div
+          style="padding: 47px 15px 0px;"
+        >
+          <button
+            class="sc-fznKkj eboykN"
+            type="submit"
+            width="100"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              Auto
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj kCeHpr"
+            type="submit"
+            width="120"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              Pomodoro
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj kCeHpr"
+            type="submit"
+            width="120"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              L-Break
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj kCeHpr"
+            type="submit"
+            width="120"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              S-break
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj eboykN"
+            type="submit"
+            width="100"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              Settings
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj eboykN"
+            type="submit"
+            width="100"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              About
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxiKw hWCQXE"
+    >
+      <button
+        class="sc-fznyAO jbexnx"
+        type="submit"
+        width="150"
+      >
+        Show Favorites
+      </button>
+      
+      <table>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              Name
+            </th>
+            <th>
+              Duration
+            </th>
+            <th>
+              L-break
+            </th>
+            <th>
+              S-break
+            </th>
+            <th>
+              Status
+            </th>
+            <th>
+              Favorites
+            </th>
+            <th>
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class=""
+            data-position="0"
+            draggable="true"
+          >
+            <td>
+              <p
+                class="sc-Axmtr cuKjKQ"
+                type="p"
+              >
+                ✎
+              </p>
+            </td>
+            <td>
+               
+              Taena hehe
+            </td>
+            <td>
+               
+              25
+            </td>
+            <td>
+               
+              15
+            </td>
+            <td>
+               
+              10
+            </td>
+            <td>
+              To do
+            </td>
+            <td>
+               
+              No
+            </td>
+            <td>
+              <button
+                class="sc-fznyAO jqcObA"
+                type="submit"
+                width="100"
+              >
+                Play
+              </button>
+              <button
+                class="sc-fznyAO bLTcgU"
+                type="submit"
+                width="100"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="done"
+            data-position="1"
+            draggable="true"
+          >
+            <td>
+              <p
+                class="sc-Axmtr cuKjKQ"
+                type="p"
+              >
+                ✎
+              </p>
+            </td>
+            <td>
+               
+              Taena KO
+            </td>
+            <td>
+               
+              25
+            </td>
+            <td>
+               
+              15
+            </td>
+            <td>
+               
+              10
+            </td>
+            <td>
+              Done
+            </td>
+            <td>
+               
+              Yes
+            </td>
+            <td>
+              <button
+                class="sc-fznyAO jqcObA"
+                disabled=""
+                type="submit"
+                width="100"
+              >
+                Play
+              </button>
+              <button
+                class="sc-fznyAO bLTcgU"
+                type="submit"
+                width="100"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Test for Index Pomodoro App renders the component without values on table 1`] = `
+<div>
+  <form
+    action="#"
+  >
+    <h2
+      class="sc-AxhUy kUxjaF"
+      type="h2"
+    >
+      <span
+        style="font-family: 'Orbitron', sans-serif;"
+      >
+        Timer: 
+        <br />
+        25m:0s
+      </span>
+    </h2>
+    <div
+      class="sc-AxirZ iESHQS"
+    >
+      <button
+        class="sc-fznKkj kWHrLL"
+        disabled=""
+        type="submit"
+        width="100"
+      >
+        <span
+          class="sc-fzplWN gcyZgM"
+        >
+          ❚❚
+        </span>
+      </button>
+      <button
+        class="sc-fznKkj kWHrLL"
+        type="submit"
+        width="100"
+      >
+        <span
+          class="sc-fzplWN gcyZgM"
+        >
+          ▷
+        </span>
+      </button>
+      <button
+        class="sc-fznKkj kWHrLL"
+        type="submit"
+        width="100"
+      >
+        <span
+          class="sc-fzplWN gcyZgM"
+        >
+          ↻
+        </span>
+      </button>
+    </div>
+    <div
+      class="sc-AxjAm dNRMDR"
+    >
+      <div
+        class="sc-AxirZ khsKjH"
+      >
+        <input
+          class="sc-fzpans dJYYuJ"
+          id="todoName"
+          placeholder="Add todo"
+          value=""
+        />
+        <button
+          class="sc-fznKkj bHKJNM"
+          type="submit"
+        >
+          <span
+            class="sc-fzplWN gcyZgM"
+          >
+            Add Todo
+          </span>
+        </button>
+      </div>
+      <div
+        class="sc-AxirZ dfLLgI"
+      >
+        <div
+          style="padding: 47px 15px 0px;"
+        >
+          <button
+            class="sc-fznKkj eboykN"
+            type="submit"
+            width="100"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              Auto
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj kCeHpr"
+            type="submit"
+            width="120"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              Pomodoro
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj kCeHpr"
+            type="submit"
+            width="120"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              L-Break
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj kCeHpr"
+            type="submit"
+            width="120"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              S-break
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj eboykN"
+            type="submit"
+            width="100"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              Settings
+            </span>
+          </button>
+          <button
+            class="sc-fznKkj eboykN"
+            type="submit"
+            width="100"
+          >
+            <span
+              class="sc-fzplWN gcyZgM"
+            >
+              About
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxiKw hWCQXE"
+    >
+      <button
+        class="sc-fznyAO jbexnx"
+        type="submit"
+        width="150"
+      >
+        Show Favorites
+      </button>
+      
+      <table>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              Name
+            </th>
+            <th>
+              Duration
+            </th>
+            <th>
+              L-break
+            </th>
+            <th>
+              S-break
+            </th>
+            <th>
+              Status
+            </th>
+            <th>
+              Favorites
+            </th>
+            <th>
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class=""
+            data-position="0"
+            draggable="true"
+          >
+            <td>
+              <p
+                class="sc-Axmtr cuKjKQ"
+                type="p"
+              >
+                ✎
+              </p>
+            </td>
+            <td>
+               
+              Taena hehe
+            </td>
+            <td>
+               
+              25
+            </td>
+            <td>
+               
+              15
+            </td>
+            <td>
+               
+              10
+            </td>
+            <td>
+              To do
+            </td>
+            <td>
+               
+              No
+            </td>
+            <td>
+              <button
+                class="sc-fznyAO jqcObA"
+                type="submit"
+                width="100"
+              >
+                Play
+              </button>
+              <button
+                class="sc-fznyAO bLTcgU"
+                type="submit"
+                width="100"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="done"
+            data-position="1"
+            draggable="true"
+          >
+            <td>
+              <p
+                class="sc-Axmtr cuKjKQ"
+                type="p"
+              >
+                ✎
+              </p>
+            </td>
+            <td>
+               
+              Taena KO
+            </td>
+            <td>
+               
+              25
+            </td>
+            <td>
+               
+              15
+            </td>
+            <td>
+               
+              10
+            </td>
+            <td>
+              Done
+            </td>
+            <td>
+               
+              Yes
+            </td>
+            <td>
+              <button
+                class="sc-fznyAO jqcObA"
+                disabled=""
+                type="submit"
+                width="100"
+              >
+                Play
+              </button>
+              <button
+                class="sc-fznyAO bLTcgU"
+                type="submit"
+                width="100"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
+`;

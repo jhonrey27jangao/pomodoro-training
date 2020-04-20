@@ -13,7 +13,7 @@ export function* getInfoAsync() {
     const data = yield call(getData);
     yield put(actions.getInfoSuccess(data));
   } catch (error) {
-    yield put(actions.getInfoFailure(error));
+    // yield put(actions.getInfoFailure(error));
   }
 }
 
@@ -28,7 +28,7 @@ export function* getCountriesAsync() {
     const data = yield call(getData);
     yield put(actions.getCountriesSuccess(data));
   } catch (error) {
-    yield put(actions.getCountriesFailure(error));
+    // yield put(actions.getCountriesFailure(error));
   }
 }
 

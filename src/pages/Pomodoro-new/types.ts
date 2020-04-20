@@ -6,5 +6,5 @@ export type PomodoroStyledProps = {
 };
 
 export type PomdoroProps = {
-  setTitle: (e: any) => void;
+  setTitle?: (e: any) => void;
 };

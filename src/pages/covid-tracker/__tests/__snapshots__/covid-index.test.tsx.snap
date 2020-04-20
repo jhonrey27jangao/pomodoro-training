@@ -1,0 +1,501 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for Index covid tracker App renders the component 1`] = `
+<div>
+  <div
+    class="sc-fzplWN gmyQDm"
+    width="500"
+  >
+    <div
+      class="sc-fznyAO dDnZF"
+      width="500"
+    >
+      <h2
+        style="text-align: center; font-weight: bold; margin: 2px;"
+      >
+        Sign up First:
+      </h2>
+      <form
+        action="#"
+      >
+        <div
+          class="sc-Axmtr lvTXe"
+        >
+          <span>
+            Enter your first name:
+          </span>
+          <input
+            id="firstName"
+            name="firstName"
+            placeholder="Ricardo"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-AxmLO gbYgpq"
+        />
+        <div
+          class="sc-Axmtr lvTXe"
+        >
+          <span>
+            Enter your middle name:
+          </span>
+          <input
+            id="middleName"
+            name="middleName"
+            placeholder="Dance"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-AxmLO gbYgpq"
+        />
+        <div
+          class="sc-Axmtr lvTXe"
+        >
+          <span>
+            Enter your last name:
+          </span>
+          <input
+            id="lastName"
+            name="lastName"
+            placeholder="Milos"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-AxmLO gbYgpq"
+        />
+        <div
+          class="sc-Axmtr lvTXe"
+        >
+          <span>
+            Enter your e-mail:
+          </span>
+          <input
+            id="email"
+            name="email"
+            placeholder="ricardomilos@gmail.com"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-AxmLO gbYgpq"
+        />
+        <div
+          class="sc-Axmtr lvTXe"
+        >
+          <span>
+            Enter your user name:
+          </span>
+          <input
+            id="userName"
+            name="userName"
+            placeholder="I<3Ricardo123Milos"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-AxmLO gbYgpq"
+        />
+        <div
+          class="sc-Axmtr lvTXe"
+        >
+          <span>
+            Enter your password:
+          </span>
+          <input
+            id="password"
+            name="password"
+            placeholder="**************"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-AxmLO gbYgpq"
+        />
+        <div
+          class="sc-Axmtr lvTXe"
+        >
+          <span>
+            confirm your password:
+          </span>
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="**************"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-AxmLO gbYgpq"
+        />
+        <button
+          class="sc-fzoLsD bDeww"
+          type="submit"
+        >
+          Sign-Up
+        </button>
+      </form>
+      <div
+        class="sc-fznKkj FqTyF"
+      >
+        X
+      </div>
+    </div>
+  </div>
+  <div
+    class="sc-AxjAm jzMSHk"
+  >
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb krsugi"
+          >
+            <span>
+              <img
+                alt="Infected"
+                src="infected.png"
+              />
+            </span>
+          </div>
+          <p>
+            Cases:
+          </p>
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb knOXta"
+          >
+            <span>
+              <img
+                alt=" deats"
+                src="death.png"
+              />
+            </span>
+          </div>
+          <p>
+            Deaths:
+          </p>
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb XTtAT"
+          >
+            <span>
+              <img
+                alt="Infected"
+                src="recovered.png"
+              />
+            </span>
+          </div>
+          <p>
+            Recoveries:
+          </p>
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ cgIrKz"
+    >
+      <div
+        class="sc-AxiKw kCfraY"
+      >
+        <div
+          class="top"
+        >
+          <div
+            class="sc-AxhCb cpNgZK"
+          >
+            <span>
+              <img
+                alt="Infected"
+                src="github.png"
+              />
+            </span>
+          </div>
+          <p>
+            Api Info:
+          </p>
+          <a
+            href="https://github.com/javieraviles/covidAPI"
+          >
+            Live Coronavirus API
+          </a>
+        </div>
+        <div
+          class="bottom"
+        >
+          <p>
+            Tracked from: Github Live api 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sc-AxjAm jzMSHk"
+  >
+    <div
+      class="sc-AxirZ ivzOFj"
+    >
+      <div
+        class="sc-AxirZ keKCHf"
+      >
+        <div
+          class="sc-AxhUy csZhMW"
+        >
+          <div
+            class="sc-AxhCb knOXta"
+          >
+            <h2>
+              Browse countries:
+            </h2>
+            <p
+              class="sub-heading"
+            >
+              List of countries affected by covid-19 virus
+            </p>
+          </div>
+          <div
+            class="sc-AxgMl kkBAcO"
+          >
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    Country Name
+                  </th>
+                  <th>
+                    <button
+                      class="sort-button-alpha"
+                    >
+                      ↑ AB
+                    </button>
+                    <button
+                      class="sort-button-cases"
+                    >
+                      ↓C
+                    </button>
+                    <button
+                      class="sort-button-cases"
+                    >
+                      ↑D
+                    </button>
+                  </th>
+                </tr>
+                <tr>
+                  <td
+                    colspan="2"
+                  >
+                    <input
+                      id="search"
+                      placeholder="Search country .."
+                      type="text"
+                      width="200"
+                    />
+                  </td>
+                </tr>
+              </thead>
+              <tbody />
+            </table>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-AxirZ keKCHf"
+      >
+        <div
+          class="sc-AxhUy csZhMW"
+        >
+          <div
+            class="sc-AxhCb krsugi"
+          >
+            <h2>
+              News:
+            </h2>
+            <p
+              class="sub-heading"
+            >
+              Be updated to daily news in Covid
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ fFoEED"
+    >
+      <div
+        class="sc-AxirZ keKCHf"
+      >
+        <div
+          class="sc-AxiKw kCfraY"
+        >
+          <div
+            style="position: relative; width: 0px; height: 0px; cursor: grab; outline: none;"
+            tabindex="0"
+          >
+            <div
+              style="position: relative; width: 100%; height: 100%;"
+            >
+              <div
+                class=""
+                style="position: absolute; width: 100%; height: 100%; overflow: hidden; visibility: inherit;"
+              />
+              <div
+                style="overflow: visible; height: 0px; width: 0px;"
+              />
+              <div
+                class="resize-triggers"
+              >
+                <div
+                  class="expand-trigger"
+                >
+                  <div
+                    style="width: 1px; height: 1px;"
+                  />
+                </div>
+                <div
+                  class="contract-trigger"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="sc-AxheI eYnhzI"
+          >
+            <h2>
+              Overview
+            </h2>
+            <div
+              class="sub-info"
+            >
+              <h3>
+                World
+              </h3>
+              <p
+                class="cases"
+              >
+                Total confirmed cases: 
+                <br />
+                <span
+                  class="case-number"
+                >
+                  0
+                </span>
+              </p>
+              <p
+                class="deaths"
+              >
+                Total Deaths:
+                <span
+                  class="value"
+                >
+                  +
+                  0
+                </span>
+              </p>
+              <p
+                class="recoveries"
+              >
+                Total Recoveries:
+                <span
+                  class="value"
+                >
+                  +
+                  0
+                </span>
+              </p>
+              <p
+                class="todays-cases"
+              >
+                Today's cases:
+                <span
+                  class="value"
+                >
+                  +
+                  0
+                </span>
+              </p>
+              <p
+                class="todays-deaths"
+              >
+                Today's deaths:
+                <span
+                  class="value"
+                >
+                  +
+                  0
+                </span>
+              </p>
+            </div>
+            <button
+              class="heal-button"
+            >
+              Heal covid here
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

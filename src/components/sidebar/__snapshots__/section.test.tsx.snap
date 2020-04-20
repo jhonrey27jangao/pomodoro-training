@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for Sidebar Component should render Sidebar 1`] = `
+<div>
+  <div
+    class="sc-AxjAm kViBUK"
+  >
+    <div
+      class="sc-AxiKw fZiZrK"
+    >
+      <a
+        href="sadad"
+      >
+        Ricardo.
+      </a>
+    </div>
+    <div
+      class="sc-AxirZ jDldZL"
+    >
+      <ul
+        class="sideBar-nav"
+      >
+        <a
+          href="/"
+        >
+          <li>
+            Home
+          </li>
+        </a>
+        <a
+          href="/pomodoro"
+        >
+          <li>
+            Pomodoro
+          </li>
+        </a>
+        <a
+          href="/covid-tracker"
+        >
+          <li>
+            Covid Tracker
+          </li>
+        </a>
+      </ul>
+      <ul
+        class="sideBar-social"
+      >
+        <li
+          class="ss-fb"
+        >
+          <a
+            href="https://facebook.com"
+          >
+            <span>
+              Facebook
+            </span>
+          </a>
+        </li>
+        <li
+          class="ss-insta"
+        >
+          <a
+            href="https://instagram.com"
+          >
+            <span>
+              Instagram
+            </span>
+          </a>
+        </li>
+        <li
+          class="ss-dribble"
+        >
+          <a
+            href="https://dribble.com"
+          >
+            <span>
+              Gmail
+            </span>
+          </a>
+        </li>
+        <li
+          class="ss-twitter"
+        >
+          <a
+            href="https://twitter.com"
+          >
+            <span>
+              Twitter
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

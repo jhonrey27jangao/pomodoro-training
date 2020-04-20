@@ -69,28 +69,27 @@ const RenderPomodoroInput = ({
         >
           <Button theme="default" width={100} onClick={() => setAutoTimer()}>
             {autoPomodoro.status ? "Manual" : "Auto"}
-            <br /> &#10561;
           </Button>
           <Button
             theme="default"
             width={120}
             onClick={() => setSpecifiedTimer(pomodoroDuration)}
           >
-            {pomodoroDuration} Pomodoro
+            Pomodoro
           </Button>
           <Button
             theme="default"
             width={120}
             onClick={() => setSpecifiedTimer(longBreak)}
           >
-            {longBreak} <br /> L-Break
+            L-Break
           </Button>
           <Button
             theme="default"
             width={120}
             onClick={() => setSpecifiedTimer(shortBreak)}
           >
-            {shortBreak} <br /> S-break
+            S-break
           </Button>
           <Button
             theme="default"
@@ -102,7 +101,7 @@ const RenderPomodoroInput = ({
               })
             }
           >
-            Settings <br /> &#9777;
+            Settings
           </Button>
           <Button
             theme="default"
@@ -115,7 +114,7 @@ const RenderPomodoroInput = ({
               })
             }
           >
-            About <br /> &#8305;
+            About
           </Button>
         </div>
       </PomodoroListChild>
@@ -264,6 +263,7 @@ const renderTimerModal = ({
       modalTitle="Update list"
     >
       <Input
+        id="editTodoInput"
         value={editTodo.title}
         onChange={(e) =>
           setEditTodo({
@@ -347,18 +347,21 @@ const renderTodoModal = ({
       modalTitle="UPDATE TIMER"
     >
       <Input
+        id="PDuration"
         value={pomodoroDurationState}
         width={250}
         placeholder="Enter Pomodoro Duration"
         onChange={(e) => setpomodoroDurationState(e.target.value)}
       />
       <Input
+        id="LBreak"
         value={longBreakState}
         width={250}
         placeholder="Enter Long Break Duration"
         onChange={(e) => setlongBreakState(e.target.value)}
       />
       <Input
+        id="SBreak"
         value={shortBreakState}
         width={250}
         placeholder="Enter Short Break Duration"
@@ -452,9 +455,13 @@ const renderAboutModal = ({ modalView, setModalView }: any) => {
   );
 };
 
-const renderFavoritesModal = ({ setModalView, setTodoTitle }: any) => {
-  const listFavorites = JSON.parse(
-    localStorage.getItem("PomodoroSuggestion") || "{}"
+const renderFavoritesModal = ({
+  setModalView,
+  setTodoTitle,
+  PomodoroSuggestion,
+}: any) => {
+  PomodoroSuggestion = JSON.parse(
+    localStorage.getItem("PomodoroSuggestion") || "[]"
   );
 
   const selectFavorite = (item: any) => {
@@ -480,7 +487,7 @@ const renderFavoritesModal = ({ setModalView, setTodoTitle }: any) => {
       }
       modalTitle="Pick Favorites:"
     >
-      {listFavorites.length === 0 ? (
+      {PomodoroSuggestion.length === 0 ? (
         <p
           style={{
             marginTop: "10px",
@@ -491,7 +498,7 @@ const renderFavoritesModal = ({ setModalView, setTodoTitle }: any) => {
         </p>
       ) : (
         <>
-          {listFavorites.map((item: any) => (
+          {PomodoroSuggestion.map((item: any) => (
             <>
               <Button
                 key={item.id}
@@ -514,8 +521,9 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
   const shortBreak = useSelector(
     (state: any) => state.pomodoroReducer.shortBreak
   );
-  const allState = useSelector((state: any) => state);
-  const longBreak = useSelector((state: any) => state.pomodoroReducerlongBreak);
+  const longBreak = useSelector(
+    (state: any) => state.pomodoroReducer.longBreak
+  );
   const pomodoroDuration = useSelector(
     (state: any) => state.pomodoroReducer.pomodoroDuration
   );
@@ -711,12 +719,12 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
         savedShortBreak: shortBreak,
       });
 
-      Notification.requestPermission().then(() => {
-        new Notification(`Added todo: ${todoTitle}:`, {
-          body: `Duration: ${pomodoroDuration}`,
-          timestamp: 500,
-        });
-      });
+      // Notification.requestPermission().then(() => {
+      //   new Notification(`Added todo: ${todoTitle}:`, {
+      //     body: `Duration: ${pomodoroDuration}`,
+      //     timestamp: 500,
+      //   });
+      // });
     }
 
     if (lists !== Lists) {
@@ -727,24 +735,24 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
   const toggle = useCallback(() => {
     setToggleTimer(!toggleTimer);
 
-    Notification.requestPermission().then(() => {
-      new Notification("Timer:", {
-        body: toggleTimer ? "pause" : "play",
-        timestamp: 500,
-      });
-    });
+    // Notification.requestPermission().then(() => {
+    //   new Notification("Timer:", {
+    //     body: toggleTimer ? "pause" : "play",
+    //     timestamp: 500,
+    //   });
+    // });
   }, [toggleTimer]);
 
   const resetTimer = () => {
     setToggleTimer(false);
     setTimer(pomodoroDuration * 60);
 
-    Notification.requestPermission().then(() => {
-      new Notification("Timer:", {
-        body: "reset",
-        timestamp: 500,
-      });
-    });
+    // Notification.requestPermission().then(() => {
+    //   new Notification("Timer:", {
+    //     body: "reset",
+    //     timestamp: 500,
+    //   });
+    // });
   };
 
   const setAutoTimer = () => {
@@ -755,12 +763,12 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
       shortBreakLimit: autoPomodoro.shortBreakLimit,
     });
 
-    Notification.requestPermission().then(() => {
-      new Notification("Timer is:", {
-        body: autoPomodoro.status ? "Manual" : "Auto",
-        timestamp: 500,
-      });
-    });
+    // Notification.requestPermission().then(() => {
+    //   new Notification("Timer is:", {
+    //     body: autoPomodoro.status ? "Manual" : "Auto",
+    //     timestamp: 500,
+    //   });
+    // });
   };
 
   const deleteTodo = (id: any) => {
@@ -769,12 +777,12 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
       todoId: id,
     });
 
-    Notification.requestPermission().then(() => {
-      new Notification(`Delete`, {
-        body: "Todo",
-        timestamp: 100,
-      });
-    });
+    // Notification.requestPermission().then(() => {
+    //   new Notification(`Delete`, {
+    //     body: "Todo",
+    //     timestamp: 100,
+    //   });
+    // });
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -782,12 +790,12 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
     setToggleTimer(true);
     setTimer(value * 60);
 
-    Notification.requestPermission().then(() => {
-      new Notification(`Timer: ${toggleTimer ? "pause" : "play"}`, {
-        body: `duration: ${time_convert(value * 60)}`,
-        timestamp: 500,
-      });
-    });
+    // Notification.requestPermission().then(() => {
+    //   new Notification(`Timer: ${toggleTimer ? "pause" : "play"}`, {
+    //     body: `duration: ${time_convert(value * 60)}`,
+    //     timestamp: 500,
+    //   });
+    // });
   };
 
   const updateOrder = () => {
@@ -822,7 +830,6 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
 
   useEffect(() => {
     let interval: any = null;
-    console.log(JSON.stringify(allState));
     checkFavorites();
     if (toggleTimer) {
       interval = setInterval(() => {
@@ -960,7 +967,12 @@ const IndexPage: React.FC<PomdoroProps> = ({ setTitle }) => {
             {modalView.aboutModal &&
               renderAboutModal({ modalView, setModalView })}
             {modalView.favoritesModal &&
-              renderFavoritesModal({ setModalView, modalView, setTodoTitle })}
+              renderFavoritesModal({
+                setModalView,
+                modalView,
+                setTodoTitle,
+                PomodoroSuggestion,
+              })}
             <RenderPomodoroInput
               pomodoroDuration={pomodoroDuration}
               longBreak={longBreak}

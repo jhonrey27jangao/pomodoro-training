@@ -13,7 +13,7 @@ const IndexPage: React.FC = () => {
     (state: any) => state.getCountriesReducer.countries
   );
 
-  const [showSignUp, setShowSignUp] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(true);
 
   useEffect(() => {
     dispatch(actions.getInfoRequest());
