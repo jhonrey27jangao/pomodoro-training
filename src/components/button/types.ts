@@ -1,4 +1,5 @@
 export type ButtonProps = {
+  type?: string;
   rounded?: boolean;
   theme?: "success" | "warning" | "default" | "dark";
   width?: number;

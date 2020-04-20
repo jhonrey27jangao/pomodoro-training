@@ -9,6 +9,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   disabled,
   rounded,
+  type,
 }) => {
   return (
     <>

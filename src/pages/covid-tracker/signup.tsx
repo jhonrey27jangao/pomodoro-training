@@ -50,11 +50,16 @@ const SignUpForm: React.FC = () => {
       <Formik
         initialValues={intialValues}
         validationSchema={validationSchema}
-        onSubmit={() => {}}
+        onSubmit={(values, actions) => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            actions.setSubmitting(false);
+          }, 1000);
+        }}
         validateOnBlur={true}
       >
         {(formikBag: any) => (
-          <Form>
+          <Form onSubmit={formikBag.handleSubmit}>
             <Field
               name="firstName"
               id="firstName"
@@ -127,7 +132,11 @@ const SignUpForm: React.FC = () => {
             <StyledErrorMessage>
               <ErrorMessage name="confirmPassword" />
             </StyledErrorMessage>
-            <Button theme="success" onClick={() => formikBag.submitForm()}>
+            <Button
+              theme="success"
+              onClick={() => formikBag.submitForm()}
+              type="submit"
+            >
               Sign-Up
             </Button>
           </Form>
