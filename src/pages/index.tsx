@@ -7,7 +7,11 @@ import CovidTracker from "./covid-tracker/";
 import { SideBar } from "../components/sidebar/sidebar";
 import { Content } from "../components/content/content";
 
-const HomePage: React.FC = () => <div></div>;
+const HomePage: React.FC = () => (
+  <div>
+    <p>Work in process..</p>
+  </div>
+);
 
 const IndexPage: React.FC = () => {
   return (
@@ -15,7 +19,7 @@ const IndexPage: React.FC = () => {
       <Router>
         <div id="main">
           <SideBar />
-          <Content title="Covid Tracker:">
+          <Content title="">
             <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/pomodoro" component={Pomodoro} />
